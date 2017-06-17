@@ -1,0 +1,22 @@
+# All errors during conversion will be publihed here
+mittax_mediaconverter.topic.converter.error:
+    channel: mittax/mediaconverter/topic/converter/error
+    handler:
+        callback: 'mittax_mediaconverter.topic.converter.error' #related to the getName() of your topic
+
+# each successfull convertion will be published here
+mittax_mediaconverter.topic.converter.success:
+    channel: mittax/mediaconverter/topic/converter/success
+    handler:
+        callback: 'mittax_mediaconverter.topic.converter.success'
+# each ticket registration will be published hgere
+mittax_mediaconverter.topic.converter.ticketcreated:
+    channel: mittax/mediaconverter/topic/converter/ticketcreated
+    handler:
+        callback: 'mittax_mediaconverter.topic.converter.ticketcreated'
+
+# All errors during conversion will be publihed here
+mittax_mediaconverter.topic.system.error:
+    channel: mittax/mediaconverter/topic/system/error
+    handler:
+        callback: 'mittax_mediaconverter.topic.system.error'

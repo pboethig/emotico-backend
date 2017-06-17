@@ -1,0 +1,115 @@
+services:
+    ################################################################################
+    # EVENTS
+    # fires everytime a new collectionobject is created
+    collection.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Collection\CollectionCreated
+        tags:
+            - { name: kernel.event_listener, event: collection.created}
+
+    ################################################################################
+    # fires if a finedata jobticket for thumbnail generation was created
+    thumbnail.jobticket.finedata.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Thumbnail\JobTicketFineDataCreated
+        tags:
+            - { name: kernel.event_listener, event: thumbnail.jobticket.finedata.created}
+        arguments: [ "@service_container" ]
+    ################################################################################
+    # fires if finedata of related to the previous jobticket are created in storage
+    thumbnail.finedata.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Thumbnail\FineDataCreated
+        tags:
+            - { name: kernel.event_listener, event: thumbnail.finedata.created}
+        arguments: [ "@service_container" ]
+    ################################################################################
+    # fires if a collection of thumbnails was created
+    thumbnail.collection.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Thumbnail\CollectionCreated
+        tags:
+            - { name: kernel.event_listener, event: thumbnail.collection.created}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # fires if a lowres video was created
+    ffmpeg.lowres.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Converter\Ffmpeg\LowresCreated
+        tags:
+            - { name: kernel.event_listener, event: ffmpeg.lowres.created}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # fires if a lowres indd was created
+    indesignserver.lowres.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\InDesignServer\InDesignServerLowresCreated
+        tags:
+            - {
+                name: kernel.event_listener,
+                event: indesignserver.lowres.created,
+                eventClassName: Mittax\MediaConverterBundle\Event\InDesignServer\InDesignServerLowresCreated,
+                eventListenerMethodName: onIndesignServerLowresCreated
+              }
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # InDesignServerDown
+        indesignserver.systemnotreachable:
+            class: Mittax\MediaConverterBundle\Event\Listener\InDesignServer\SystemNotReachable
+            tags:
+                - {
+                    name: kernel.event_listener,
+                    event: indesignserver.systemnotreachable
+                  }
+            arguments: [ "@service_container" ]
+
+      ################################################################################
+      # fires if a indesign server error occures
+    indesignserver.error:
+        class: Mittax\MediaConverterBundle\Event\Listener\InDesignServer\InDesignServerError
+        tags:
+            - {
+                name: kernel.event_listener,
+                event: indesignserver.error
+              }
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # fires if a collection of thumbnails was created
+    thumbnail.builder.imagine.runtimeexception:
+        class: Mittax\MediaConverterBundle\Event\Listener\Builder\ImagineRuntimeException
+        tags:
+            - { name: kernel.event_listener, event: thumbnail.builder.imagine.runtimeexception}
+        arguments: [ "@service_container" ]
+   ################################################################################
+    # fires if video conversion causes runtimeexception
+    thumbnail.builder.ffmpeg.runtimeexception:
+        class: Mittax\MediaConverterBundle\Event\Listener\Builder\FfmpegRuntimeException
+        tags:
+            - { name: kernel.event_listener, event: thumbnail.builder.ffmpeg.runtimeexception}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # fires if a asset was uploaded
+    asset.upload.finished:
+        class: Mittax\MediaConverterBundle\Event\Listener\Upload\AssetUploadFinished
+        tags:
+            - { name: kernel.event_listener, event: asset.upload.finished}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # fires if no converter was found for given format
+    no.converter.for.format.found.exception:
+        class: Mittax\MediaConverterBundle\Event\Listener\Converter\NoConverterForFormatFoundException
+        tags:
+            - { name: kernel.event_listener, event: no.converter.for.format.found.exception}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
+    # websocket client events
+    gos_web_socket_server.client_event.listener:
+        class: Mittax\MediaConverterBundle\Event\Listener\Websocket\ClientEventListener
+        tags:
+            - { name: kernel.event_listener, event: 'gos_web_socket.client_connected', method: onClientConnect }
+            - { name: kernel.event_listener, event: 'gos_web_socket.client_disconnected', method: onClientDisconnect }
+            - { name: kernel.event_listener, event: 'gos_web_socket.client_error', method: onClientError }
+            - { name: kernel.event_listener, event: 'gos_web_socket.server_launched', method: onServerStart }
+            - { name: kernel.event_listener, event: 'gos_web_socket.client_rejected', method: onClientRejected }

@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: mariadb
+    database_port: 3306
+    database_name: emotico
+    database_user: root
+    database_password: pass
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    jms_serializer.camel_case_naming_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+mittax_wsse:
+    salt: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+    lifetime: 600
+    encoder: Mittax\WsseBundle\Security\Encoder\Sha512
+    preventreplayattacks: true
+    usermanager: fos_user.user_manager
+    usertablename: fos_user
+    usernamecolumn: username
+    passwordcolumn: password
+    integrationtestsusername: mittax
+    integrationtestsserverurl: 'http://nginx'

@@ -1,0 +1,125 @@
+mittax_rabbit_mq:
+  connections:
+    #####################################################
+    # lazysocket connection
+    default:
+      host: rabbitmq
+      port: 5672
+      apiport: 15672
+      ###################################################
+      # SSL Configuration
+      #path to local ca file
+      ssl_cafilepath:
+      #path to local cert
+      ssl_localcertpath:
+      #veryfy ssl peer
+      ssl_verify_peer: false
+      username: guest
+      password: guest
+      vhost: /
+      debug: false
+      lazy: true
+      connection_timeout: 10
+      read_write_timeout: 10
+      keepalive: false
+      heartbeat: 5
+      use_socket: true
+      insist: false
+      login_method: AMQPLAIN
+      login_response: null
+      locale: en_US
+    #####################################################
+    # default stream connection
+    streamconnection:
+        host: rabbitmq
+        port: 5672
+        apiport: 15672
+        ###################################################
+        # SSL Configuration
+        #path to local ca file
+        ssl_cafilepath:
+        #path to local cert
+        ssl_localcertpath:
+        #veryfy ssl peer
+        ssl_verify_peer: false
+        username: guest
+        password: guest
+        vhost: /
+        debug: false
+        lazy: false
+        use_socket: false
+        connection_timeout: 10
+        read_write_timeout: 10
+        keepalive: false
+        heartbeat: 5
+        insist: false
+        login_method: AMQPLAIN
+        login_response: null
+        locale: en_US
+    #####################################################
+    # lazy stream connection
+    lazystreamconnection:
+        host: rabbitmq
+        port: 5672
+        apiport: 15672
+        ###################################################
+        # SSL Configuration
+        #path to local ca file
+        ssl_cafilepath:
+        #path to local cert
+        ssl_localcertpath:
+        #veryfy ssl peer
+        ssl_verify_peer: false
+        username: guest
+        password: guest
+        vhost: /
+        debug: false
+        lazy: true
+        use_socket: false
+        connection_timeout: 60
+        read_write_timeout: 60
+        keepalive: false
+        heartbeat: 30
+        insist: false
+        login_method: AMQPLAIN
+        login_response: null
+        locale: en_US
+    #####################################################
+    # default socket connection
+    socketconnection:
+        host: rabbitmq
+        port: 5672
+        apiport: 15672
+        ###################################################
+        # SSL Configuration
+        #path to local ca file
+        ssl_cafilepath:
+        #path to local cert
+        ssl_localcertpath:
+        #veryfy ssl peer
+        ssl_verify_peer: false
+        username: guest
+        password: guest
+        vhost: /
+        debug: false
+        lazy: false
+        use_socket: true
+        connection_timeout: 3
+        read_write_timeout: 3
+        keepalive: false
+        heartbeat: 30
+        insist: false
+        login_method: AMQPLAIN
+        login_response: null
+        locale: en_US
+
+#####################################################
+# Consumers
+  consumers:
+    Mittax\RabbitMQBundle\Service\Consumer\Configuration\Basic:
+      queue: q_testexchangetest
+      consumer_tag: consumer
+      no_local: false
+      no_ack: false
+      exclusive: false
+      nowait: false

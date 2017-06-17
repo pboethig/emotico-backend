@@ -1,0 +1,4 @@
+services:
+  mittax_core.repository.generic:
+    class: Mittax\CoreBundle\Repository\Generic
+    arguments: ["@doctrine.orm.entity_manager", "@jms_serializer"]

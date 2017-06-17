@@ -1,0 +1,27 @@
+mittax_message:
+    resource: "@MittaxMessageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mittax_wsse:
+    resource: "@MittaxWsseBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mittax_core:
+    resource: "@MittaxCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mittax_mediaconverter:
+    resource: "@MittaxMediaConverterBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mittax_emotico:
+    resource: "@MittaxEmoticoBundle/Controller/"
+    type:     annotation
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

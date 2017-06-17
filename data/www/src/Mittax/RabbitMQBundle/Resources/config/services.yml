@@ -1,0 +1,15 @@
+services:
+  mittax_rabbitmq.service.connection.configuration.factory:
+        class: Mittax\RabbitMQBundle\Service\Connection\Configuration\Factory
+        arguments: ["%mittax_rabbit_mq.connections%"]
+  mittax_rabbitmq.service.connection.factory:
+        class: Mittax\RabbitMQBundle\Service\Connection\Factory
+        arguments: ["@mittax_rabbitmq.service.connection.configuration.factory"]
+  mittax_rabbitmq.service.producer.confirm.request:
+        class: Mittax\RabbitMQBundle\Service\Producer\Confirm\Request
+  mittax_rabbitmq.logger.factory:
+        class: Mittax\RabbitMQBundle\Service\Logger\Factory
+        arguments: ["@service_container"]
+  mittax_rabbitmq.service.consumer.factory:
+          class: Mittax\RabbitMQBundle\Service\Consumer\Factory
+          arguments: ["%mittax_rabbit_mq.consumers%"]

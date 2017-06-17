@@ -1,0 +1,21 @@
+server {
+    listen 8181;
+    server_name _ localhost storage.dev;
+
+    index index.html;
+    root /var/www/storage;
+
+    charset utf-8;
+
+    access_log /var/log/nginx/default-storage-access.log;
+    error_log  /var/log/nginx/default-storage-error.log error;
+
+    location /assets {
+        autoindex on;
+    }
+
+    location /export {
+            autoindex on;
+        }
+}
+

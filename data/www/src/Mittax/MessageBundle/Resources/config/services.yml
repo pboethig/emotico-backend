@@ -1,0 +1,21 @@
+#services:
+#    mittax_message.example:
+#        class: Mittax\MessageBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+services:
+    mittax_message.servicemanager:
+        class: Mittax\MessageBundle\Service\Manager
+
+    # contains the twillo client configuration
+    mittax_message.provider.twillo.client.configuration:
+        class: Mittax\MessageBundle\Service\MessageProvider\Sms\Twillo\ClientConfiguration
+        arguments: ["%mittax.message.twillo_sid%","%mittax.message.twillo_authtoken%","%mittax.message.twillo_number%"]
+
+    #the current twillo client implementantion
+    mittax_message.provider.twillo.client:
+        class: Mittax\MessageBundle\Service\MessageProvider\Sms\Twillo\Client
+        arguments: ["@service_container"]
+
+    #add a validator based on googles libphonenumber
+    mittax_message.phonenumber:
+        class: Mittax\MessageBundle\Service\PhoneNumber

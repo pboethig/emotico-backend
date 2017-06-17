@@ -1,0 +1,6 @@
+# clienturls
+clients:
+  thumbnail.finedata.created:
+    - http://172.17.0.1:8080/webhooks/thumbnailFinedataCreated
+  indesignserver.lowres.created:
+    - http://172.17.0.1:8080/webhooks/thumbnailFinedataCreated

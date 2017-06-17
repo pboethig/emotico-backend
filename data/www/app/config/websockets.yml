@@ -1,0 +1,16 @@
+# Web Socket Configuration
+gos_web_socket:
+    server:
+        port: 8888        #The port the socket server will listen on
+        host: php70   #The host ip to bind to
+        router:
+          resources:
+            - "@MittaxMediaConverterBundle/Resources/config/pubsubrouting.yml"
+    topics:
+         - '@mittax_mediaconverter.topic.converter.error'
+         - '@mittax_mediaconverter.topic.converter.success'
+         - '@mittax_mediaconverter.topic.converter.ticketcreated'
+    pushers:
+        wamp:
+            host: php70
+            port: 8888

@@ -1,0 +1,7 @@
+mittax_message:
+    #(Required) Your Account SID from www.twilio.com/user/account
+    twillo_sid: 'AC2cd8bede9ac01c5315b4b29b01a65d0a'
+    #(Required) Your Auth Token from www.twilio.com/user/account
+    twillo_authtoken: 'bd516f42e97e932af653f21099861c5d'
+    #(Required) your twillo number
+    twillo_number: '+4915735986349'

@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Consumer/Factory.php" description="*" line="60" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30ed7042-f73c-49a2-ae3b-f463695dd689" name="Default" comment="add gitignore" />
+    <ignored path="emotico.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="emotico" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Builder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Builder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Producer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Producer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThumbnailTicketBuilderAbstract.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/ThumbnailTicketBuilderAbstract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="199" column="23" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProducerAbstract.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Producer/ProducerAbstract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="87" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueueController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/QueueController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/www/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartConsumerCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Command/Thumbnail/Imagine/StartConsumerCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ticket.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Ticket.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThumbnailTicketAbstract.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Thumbnail/ThumbnailTicketAbstract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketAbstract.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/TicketAbstract.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11">
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Resources/views/Asset/upload.html.twig" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/InDesignServerController.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/connected_clients.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Thumbnail/FineDataCreated.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/WebHook/Client.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Thumbnail/FineDataCreated.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Service/WebHook/ClientTest.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/mediaconverter.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/InDesignServer/InDesignServerLowresCreated.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/webhooks.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/AbstractKernelTestCase.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Upload/AssetUploadFinished.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/System/Config.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Service/System/ConfigTest.php" />
+        <option value="$PROJECT_DIR$/data/www/test6666.txt" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Filesystem.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Storage/Local/FilesystemTest.php" />
+        <option value="$PROJECT_DIR$/data/www/var/logs/test-2017-06-14.log" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Websocket/Topic/Converter/Error.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Websocket/Topic/Converter/Success.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Websocket/Topic/System/Error.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Websocket/Topic/Converter/Ticketcreated.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Producer/ProducerAbstract.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api/Client.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/QueueControllerTest.php" />
+        <option value="$PROJECT_DIR$/data/www/var/logs/prod.log" />
+        <option value="$PROJECT_DIR$/data/www/var/logs/dev.log" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Command/CreateStorageItemCommand.php" />
+        <option value="$PROJECT_DIR$/data/www/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/data/www/composer.json" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/EmoticoBundle/Tests/Controller/DefaultControllerTest.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/rabbitmq.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Connection/Configuration/Configuration.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api/ClientWrapper.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Tests/functional/Api/QueueTest.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/DependencyInjection/Configuration.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api/Queue.php" />
+        <option value="$PROJECT_DIR$/data/www/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/InDesignServer/Ticket.php" />
+        <option value="$PROJECT_DIR$/data/www/test111.txt" />
+        <option value="$PROJECT_DIR$/data/www/test222.tx" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Adapter/Flysystem/Local.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/InDesign/Ticket/Ticket.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Entity/Storage/StorageItemAbstract.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/QueueController.php" />
+        <option value="$PROJECT_DIR$/data/www/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emotico" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="SensioLabs.Insight" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravelclient" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Tests/functional/Api" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Service/WebHook" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/www/web/bundles/mittaxmediaconverter" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/InDesignServer" />
+      <recent name="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Ticket/Converter/Thumbnailticket" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/emotico/ClientApp/index.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30ed7042-f73c-49a2-ae3b-f463695dd689" name="Default" comment="" />
+      <created>1480277221796</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1480277221796</updated>
+      <workItem from="1480277225705" duration="221000" />
+      <workItem from="1480277486401" duration="11861000" />
+      <workItem from="1480617956557" duration="68000" />
+      <workItem from="1480763488953" duration="27827000" />
+      <workItem from="1480792699069" duration="8738000" />
+      <workItem from="1480852404215" duration="40726000" />
+      <workItem from="1481071850795" duration="1235000" />
+      <workItem from="1481221612282" duration="14731000" />
+      <workItem from="1481317810833" duration="8252000" />
+      <workItem from="1481401489481" duration="44321000" />
+      <workItem from="1481548587600" duration="21000" />
+      <workItem from="1481549509402" duration="574000" />
+      <workItem from="1481550151247" duration="1390000" />
+      <workItem from="1481551970612" duration="937000" />
+      <workItem from="1481553819761" duration="868000" />
+      <workItem from="1481555656319" duration="1665000" />
+      <workItem from="1481558603838" duration="1467000" />
+      <workItem from="1481560435031" duration="1521000" />
+      <workItem from="1481562285573" duration="441000" />
+      <workItem from="1481562788921" duration="19736000" />
+      <workItem from="1481631018871" duration="21896000" />
+      <workItem from="1481735627901" duration="21476000" />
+      <workItem from="1481798143470" duration="638000" />
+      <workItem from="1481808716601" duration="16422000" />
+      <workItem from="1481849314191" duration="1284000" />
+      <workItem from="1481879449750" duration="10305000" />
+      <workItem from="1481895724425" duration="8846000" />
+      <workItem from="1481921399391" duration="14484000" />
+      <workItem from="1481963841543" duration="50501000" />
+      <workItem from="1482065988115" duration="21274000" />
+      <workItem from="1482096523808" duration="3587000" />
+      <workItem from="1482100505355" duration="375000" />
+      <workItem from="1482101271744" duration="220000" />
+      <workItem from="1482101868060" duration="8158000" />
+      <workItem from="1482153093956" duration="25783000" />
+      <workItem from="1482238716987" duration="37138000" />
+      <workItem from="1482277426732" duration="2127000" />
+      <workItem from="1482315591776" duration="37353000" />
+      <workItem from="1482399354532" duration="22782000" />
+      <workItem from="1482431893267" duration="23051000" />
+      <workItem from="1482483556737" duration="9700000" />
+      <workItem from="1482513566579" duration="3990000" />
+      <workItem from="1482522216716" duration="4713000" />
+      <workItem from="1482526990624" duration="4594000" />
+      <workItem from="1482627004587" duration="190000" />
+      <workItem from="1482627235806" duration="1913000" />
+      <workItem from="1482629274627" duration="566000" />
+      <workItem from="1482659504415" duration="3703000" />
+      <workItem from="1482740121598" duration="18506000" />
+      <workItem from="1482914630810" duration="11662000" />
+      <workItem from="1482939674257" duration="60675000" />
+      <workItem from="1483092630009" duration="423000" />
+      <workItem from="1483093173844" duration="7584000" />
+      <workItem from="1483118889745" duration="30656000" />
+      <workItem from="1483181759822" duration="3429000" />
+      <workItem from="1483185610209" duration="2533000" />
+      <workItem from="1483188895053" duration="19887000" />
+      <workItem from="1483221216892" duration="21410000" />
+      <workItem from="1483370967354" duration="13965000" />
+      <workItem from="1483393699310" duration="14414000" />
+      <workItem from="1483606811357" duration="46986000" />
+      <workItem from="1483716350752" duration="3823000" />
+      <workItem from="1483725438987" duration="21000" />
+      <workItem from="1483729648178" duration="1735000" />
+      <workItem from="1483732123782" duration="1694000" />
+      <workItem from="1483734609356" duration="308000" />
+      <workItem from="1483736320850" duration="2080000" />
+      <workItem from="1483739312482" duration="3589000" />
+      <workItem from="1483744288101" duration="6010000" />
+      <workItem from="1483793220453" duration="9332000" />
+      <workItem from="1483803055597" duration="229000" />
+      <workItem from="1483804123724" duration="41000" />
+      <workItem from="1483805306759" duration="1789000" />
+      <workItem from="1483873152007" duration="26839000" />
+      <workItem from="1484037707264" duration="3524000" />
+      <workItem from="1484210390213" duration="30755000" />
+      <workItem from="1484556103018" duration="7572000" />
+      <workItem from="1484908590239" duration="5382000" />
+      <workItem from="1484935008828" duration="4315000" />
+      <workItem from="1492182793353" duration="1554000" />
+      <workItem from="1492240211765" duration="1517000" />
+      <workItem from="1492358518942" duration="42000" />
+      <workItem from="1495369173399" duration="22080000" />
+      <workItem from="1495640725561" duration="17313000" />
+      <workItem from="1495699120792" duration="17715000" />
+      <workItem from="1495786010419" duration="31046000" />
+      <workItem from="1495866783750" duration="7734000" />
+      <workItem from="1495890252783" duration="8456000" />
+      <workItem from="1495914761469" duration="17855000" />
+      <workItem from="1495998068244" duration="3393000" />
+      <workItem from="1496044940437" duration="2557000" />
+      <workItem from="1496080026780" duration="9230000" />
+      <workItem from="1496128438271" duration="19365000" />
+      <workItem from="1496171232309" duration="5624000" />
+      <workItem from="1496211151238" duration="2501000" />
+      <workItem from="1496214899136" duration="20457000" />
+      <workItem from="1496247199619" duration="25112000" />
+      <workItem from="1496300136924" duration="2135000" />
+      <workItem from="1496302998650" duration="823000" />
+      <workItem from="1496310215982" duration="42991000" />
+      <workItem from="1496427635857" duration="1337000" />
+      <workItem from="1496855679172" duration="662000" />
+      <workItem from="1496949173530" duration="2241000" />
+      <workItem from="1496951648508" duration="1751000" />
+      <workItem from="1496953456914" duration="1395000" />
+      <workItem from="1496955304137" duration="1789000" />
+      <workItem from="1496957147308" duration="1000000" />
+      <workItem from="1496990017000" duration="1460000" />
+      <workItem from="1496991644911" duration="1758000" />
+      <workItem from="1496994242877" duration="1703000" />
+      <workItem from="1496995984649" duration="1828000" />
+      <workItem from="1496997849803" duration="1801000" />
+      <workItem from="1496999994671" duration="8070000" />
+      <workItem from="1497020818858" duration="13649000" />
+      <workItem from="1497036472705" duration="9898000" />
+      <workItem from="1497049558875" duration="7019000" />
+      <workItem from="1497079319300" duration="19140000" />
+      <workItem from="1497170403418" duration="14209000" />
+      <workItem from="1497330912995" duration="863000" />
+      <workItem from="1497375400373" duration="162000" />
+      <workItem from="1497426314570" duration="14985000" />
+      <workItem from="1497515506832" duration="5490000" />
+      <workItem from="1497606530452" duration="22398000" />
+    </task>
+    <task id="LOCAL-00001" summary="add wsse parameters">
+      <created>1480287708830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1480287708830</updated>
+    </task>
+    <task id="LOCAL-00002" summary="switch to @dev version on wsse bundle">
+      <created>1480289353730</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1480289353730</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add exchange config and a releated requestobject to implement  producer confirmation on mittax RabbitMQBundle">
+      <created>1480891163968</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480891163968</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1298945000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31051213" sideWeight="0.8011611" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34791455" sideWeight="0.15579514" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08748728" sideWeight="0.59137464" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.49595687" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13936928" sideWeight="0.84420484" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21347709" sideWeight="0.19883889" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33468974" sideWeight="0.4916442" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.049595688" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34791455" sideWeight="0.15579514" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33468974" sideWeight="0.4916442" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.49595687" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13936928" sideWeight="0.84420484" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31266847" sideWeight="0.8011611" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.049595688" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17497456" sideWeight="0.59137464" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21347709" sideWeight="0.19883889" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add wsse parameters" />
+    <MESSAGE value="switch to @dev version on wsse bundle" />
+    <MESSAGE value="add exchange config and a releated requestobject to implement  producer confirmation on mittax RabbitMQBundle" />
+    <MESSAGE value="add consumer and factory" />
+    <MESSAGE value="refactored unittests and inspect code" />
+    <MESSAGE value="add gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add gitignore" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="20" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/alchemy/rabbitmq-management-client/src/RabbitMQ/Management/APIClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="866">
+          <caret line="285" column="5" selection-start-line="285" selection-start-column="5" selection-end-line="285" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/QueueControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/var/logs/test-2017-06-16.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Cache/RedisWrapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-167">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Command/CreateStorageItemCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/richardfullmer/rabbitmq-management-api/src/RabbitMq/ManagementApi/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/var/logs/test-2017-06-10.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/var/logs/prod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/var/logs/dev.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18853">
+          <caret line="754" column="0" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/EmoticoBundle/Tests/Controller/DefaultControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#57#109#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Tests/functional/Connection/ConfigurationTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2921">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/guzzle/guzzle/src/Guzzle/Http/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/app/config/rabbitmq.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <marker date="1497687753939" expanded="true" signature="185:190" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Tests/functional/Api/QueueTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/DependencyInjection/Configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/richardfullmer/rabbitmq-management-api/src/RabbitMq/ManagementApi/Api/Queue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api/Queue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/MessageQueue/AbstractRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Api/ClientWrapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
+          <folding>
+            <element signature="e#136#189#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="130" column="3" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Connection/Configuration/Configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6006">
+          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
+          <folding>
+            <element signature="e#158#226#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/InDesignServer/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1287">
+          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/InDesignServer/Commands/InDesignServerCommandAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/InDesignServer/Commands/DocumentExportJPG.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/SPL_c1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/league/flysystem/src/Adapter/Local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="291" column="28" selection-start-line="291" selection-start-column="28" selection-end-line="291" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/test222.tx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Collection/ThumbnailConverter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/vendor/mittax/objectcollection/src/CollectionAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Collection/StorageItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/InDesign/Ticket/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/test111.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Collection/Thumbnail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Storage/ItemRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Entity/Storage/StorageItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Adapter/Flysystem/Local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="63" column="10" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Entity/Storage/StorageItemAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/ThumbnailTicketBuilderAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="199" column="23" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Thumbnail/ThumbnailTicketAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/TicketAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Producer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Producer/ProducerAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="87" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Command/Thumbnail/Imagine/StartConsumerCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/QueueController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

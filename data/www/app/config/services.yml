@@ -1,0 +1,38 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+services:
+    wsse.security.authentication.provider:
+        class: Mittax\WsseBundle\Security\Authentication\Provider\WsseProvider
+        arguments:
+            - '' # User Provider
+            - '@cache.app'
+        public: false
+
+    wsse.security.authentication.listener:
+        class: Mittax\WsseBundle\Security\Firewall\WsseListener
+        arguments: ['@security.token_storage', '@security.authentication.manager']
+        public: false
+
+    mittax.mediaconverterbundle.controller.defaultcontroller:
+        class: Mittax\MediaConverterBundle\Controller\DefaultController
+        arguments: ['@service_container']
+
+    mittax.mediaconverterbundle.controller.assetcontroller:
+        class: Mittax\MediaConverterBundle\Controller\AssetController
+        arguments: ['@service_container']
+
+    mittax.mediaconverterbundle.thumbnail.facade:
+        class: Mittax\MediaConverterBundle\Service\Converter\Thumbnail\Facade
+        arguments: ['@service_container']
+
+    mittax.mediaconverterbundle.webhook.client:
+        class: Mittax\MediaConverterBundle\Service\WebHook\Client
+        arguments: ['@service_container']
+    mittax.mediaconverterbundle.service.storage.local.filesystem:
+        class: Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem
+        arguments: ['@service_container']
+
+    mittax.rabbitmqbundle.service.api.queue:
+        class: Mittax\RabbitMQBundle\Service\Api\Queue
+        arguments: ['@service_container']

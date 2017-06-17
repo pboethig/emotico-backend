@@ -1,0 +1,27 @@
+services:
+
+  mittax_mediaconverter.service.converter.thumbnailConverterFactory:
+    class: Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\thumbnailConverterFactory
+    arguments: ["%mittax_mediaconverter.converters%"]
+
+  mittax_mediaconverter.service.converter.thumbnail.facade:
+    class: Mittax\MediaConverterBundle\Service\Converter\Thumbnail\Facade
+    arguments: ["@service_container"]
+
+  mittax_mediaconverter.topic.converter.error:
+    class: Mittax\MediaConverterBundle\Websocket\Topic\Converter\Error
+
+  mittax_mediaconverter.topic.converter.success:
+      class: Mittax\MediaConverterBundle\Websocket\Topic\Converter\Success
+
+  mittax_mediaconverter.topic.converter.ticketcreated:
+    class: Mittax\MediaConverterBundle\Websocket\Topic\Converter\Ticketcreated
+
+  mittax_mediaconverter.topic.system.error:
+    class: Mittax\MediaConverterBundle\Websocket\Topic\System\Error
+
+
+  mittax_mediaconverter.websocket.pusher:
+    class: Mittax\MediaConverterBundle\Websocket\Pusher
+    arguments: ["@gos_web_socket.wamp.pusher"]
+
