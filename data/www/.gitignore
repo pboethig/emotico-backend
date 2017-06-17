@@ -43,3 +43,7 @@ npm-debug.log
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
+
+data/mariadb
+data/log
+data/backups
