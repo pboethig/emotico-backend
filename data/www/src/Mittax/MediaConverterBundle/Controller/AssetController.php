@@ -40,7 +40,7 @@ class AssetController extends Controller
      */
     public function storeAction(Request $request)
     {
-        $response = new Response('');
+        $response = new Response('{"message":"success"}');
 
         try
         {
@@ -66,7 +66,7 @@ class AssetController extends Controller
 
         }catch (\Exception $ex)
         {
-            $response->setContent($ex->getMessage());
+            $response->setContent('{"error":"'.$ex->getMessage().'"}');
 
             $response->setStatusCode(500);
 
@@ -120,19 +120,27 @@ class AssetController extends Controller
      */
     public function processAction(Request $request)
     {
-        $response = new Response();
+        $response = new Response('{"message":"success"}');
 
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-        $response->headers->set('Access-Control-Allow-Credentials', 'false');
-        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID');
-        $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS');
+        try
+        {
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set('Access-Control-Allow-Credentials', 'false');
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID');
+            $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS');
 
-        $uploadService = new Upload($this->container);
+            $uploadService = new Upload($this->container);
 
-        $uploadService->dispatchFinishedEvent($request->get('file'));
+            $uploadService->dispatchFinishedEvent($request->get('file'));
 
-        $response->setContent(json_encode(['success'=>$request->get('file') .' event dispatched']));
+            $response->setContent(json_encode(['success'=>$request->get('file') .' event dispatched']));
 
+        }catch (\Exception $ex)
+        {
+            $response->setContent('{"error":"'.$ex->getMessage().$ex->getTraceAsString().'"}');
+
+            $response->setStatusCode(500);
+        }
         return $response;
     }
 

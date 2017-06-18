@@ -49,6 +49,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
         try
         {
+
             $this->_init();
 
             $this->load($ticket->getStorageItem());
@@ -120,7 +121,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
         $im = $this->_currentImage->getImagick();
         $im->setResolution(72, 72);
-        $im->setImageFormat('jpeg');
+        $im->setImageFormat($ticket->getCurrentOutputFormat()->getFormat());
         $im->adaptiveResizeImage($ticket->getCurrentBox()->getWidth(), 0);
         $im->writeImage('storage/' . $ticket->getCurrentTempFilePath());
 

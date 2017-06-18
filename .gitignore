@@ -1,0 +1,4 @@
+data/www/storage/*
+data/log
+.idea
+data/backups

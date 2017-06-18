@@ -32,8 +32,8 @@ mittax_mediaconverter:
       thumbnailConverterClassName: Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Converter
       producerClassName: Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket\Producer
       thumbnailOutputFormat:
-          - { 'format': 'jpg', 'filter': '', 'quality': ['jpeg_quality', 80], sizes: [{'width': 500, 'height': 500},{'width': 200, 'height': 200}], 'mode': 'inset', 'additionalFilter': ''}
-          # - { 'format': 'png', 'filter': '', 'quality': ['png_compression_level', 10], sizes: [{'width': 500, 'height': 500}, {'width': 600, 'height': 600}], 'mode': 'inset', 'additionalFilter': ''}
+          #- { 'format': 'jpg', 'filter': '', 'quality': ['jpeg_quality', 80], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
+          - { 'format': 'png', 'filter': '', 'quality': ['png_compression_level', 10], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
       executable: { phpextension: [imagick, gd]}
       formats: art,ai,avs,bmp,cgm,cmyk,cut,dcm,dcx,dib,dpx,emf,epdf,epi,eps,eps2,eps3,epsf,epsi,ept,fax,fig,fits,fpx,gif,gplt,gray,hpgl,html,ico,jbig,jng,jp2,jpc,jpg,jpeg,man,mat,miff,mono,mng,mpeg,m2v,mpc,msl,mtv,mvg,otb,p7,palm,pbm,pcd,pcds,pcl,pcx,pdb,pdf,pfa,pfb,pgm,picon,pict,pix,png,pnm,ppm,ps,ps2,ps3,psd,ptif,pwp,rad,rgb,rgba,rla,rle,sct,sfw,sgi,shtml,sun,svg,tga,tif,tiff,tim,ttf,txt,uil,uyvy,vicar,viff,wbmp,wmf,wpg,xbm,xcf,xpm,xwd,yuv
 
