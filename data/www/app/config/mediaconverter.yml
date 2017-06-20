@@ -35,7 +35,7 @@ mittax_mediaconverter:
           #- { 'format': 'jpg', 'filter': '', 'quality': ['jpeg_quality', 80], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
           - { 'format': 'png', 'filter': '', 'quality': ['png_compression_level', 10], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
       executable: { phpextension: [imagick, gd]}
-      formats: art,ai,avs,bmp,cgm,cmyk,cut,dcm,dcx,dib,dpx,emf,epdf,epi,eps,eps2,eps3,epsf,epsi,ept,fax,fig,fits,fpx,gif,gplt,gray,hpgl,html,ico,jbig,jng,jp2,jpc,jpg,jpeg,man,mat,miff,mono,mng,mpeg,m2v,mpc,msl,mtv,mvg,otb,p7,palm,pbm,pcd,pcds,pcl,pcx,pdb,pdf,pfa,pfb,pgm,picon,pict,pix,png,pnm,ppm,ps,ps2,ps3,psd,ptif,pwp,rad,rgb,rgba,rla,rle,sct,sfw,sgi,shtml,sun,svg,tga,tif,tiff,tim,ttf,txt,uil,uyvy,vicar,viff,wbmp,wmf,wpg,xbm,xcf,xpm,xwd,yuv
+      formats: art,ai,avs,bmp,cgm,cmyk,cut,dcm,dcx,dib,dpx,emf,epdf,epi,eps,eps2,eps3,epsf,epsi,ept,fax,fig,fits,fpx,gif,gplt,gray,hpgl,html,ico,jbig,jng,jp2,jpc,jpg,jpeg,man,mat,miff,mono,mng,mpeg,m2v,mpc,msl,mtv,mvg,otb,p7,palm,pbm,pcd,pcds,pcl,pcx,pdb,pdf,pfa,pfb,pgm,picon,pict,pix,png,pnm,ppm,ps,ps2,ps3,psd,ptif,pwp,rad,rgb,rgba,rla,rle,sct,sfw,sgi,shtml,sun,svg,tga,tif,tiff,tim,ttf,txt,uil,uyvy,vicar,viff,wbmp,wmf,wpg,xbm,xpm,xwd,yuv
 
     # Adds InDesignServer Thumbnail generation
     indesign:
@@ -47,7 +47,7 @@ mittax_mediaconverter:
           - { 'format': 'jpg', 'filter': '', 'quality': ['jpeg_quality', 80], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
             # - { 'format': 'png', 'filter': '', 'quality': ['png_compression_level', 10], sizes: [{'width': 500, 'height': 500}, {'width': 600, 'height': 600}], 'mode': 'inset', 'additionalFilter': ''}
       executable: { phpextension: [imagick, gd]}
-      formats: indd, indb
+      formats: indd,indb,indb.zip
 
   ##################################################
   # Registered systempaths
@@ -66,7 +66,7 @@ mittax_mediaconverter:
   # InDesignServer Share configuration
   #####################################################
     indesign_server:
-       ip: 192.168.109.149
+       ip: 192.168.109.148
        root: \\vmware-host\Shared Folders\shared_storage
        export: ${root}\export
        assets: ${root}\assets
@@ -74,6 +74,9 @@ mittax_mediaconverter:
         - http://172.17.0.1:8089/webhooks/indesignserver
     public_web_url: http://172.17.0.1:8089
     public_websocket_url: ws://172.17.0.1:8889
+
+
+
 #####################################################
 # RabbitMQ-Producer / Consumers
 #####################################################

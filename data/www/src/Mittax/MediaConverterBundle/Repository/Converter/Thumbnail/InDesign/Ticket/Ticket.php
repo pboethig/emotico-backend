@@ -8,11 +8,7 @@
 
 namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\InDesign\Ticket;
 
-use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
-use Mittax\MediaConverterBundle\Service\System\Config;
-use Mittax\MediaConverterBundle\Ticket\InDesignServer\Commands\DocumentExportJPG;
-use Mittax\MediaConverterBundle\Ticket\InDesignServer\Types\AdditionalData;
-use Mittax\MediaConverterBundle\Ticket\InDesignServer\Types\Response;
+use Mittax\MediaConverterBundle\Ticket\ITicketBuilder;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\ThumbnailTicketAbstract;
 
 /**
@@ -21,46 +17,32 @@ use Mittax\MediaConverterBundle\Ticket\Thumbnail\ThumbnailTicketAbstract;
  */
 class Ticket extends ThumbnailTicketAbstract
 {
+    /**
+     * @var ITicketBuilder
+     */
+    private $ticketBuilder;
 
-    public function postBuild()
+    /**
+     * Ticket constructor.
+     * @param ITicketBuilder $builder
+     */
+    public function __construct(ITicketBuilder $builder)
     {
-        $baseName = rtrim(str_replace($this->storageItem->getExtension(),'', $this->storageItem->getBasename()),'.');
+        $this->ticketBuilder = $builder;
 
-        $id = Upload::md5($baseName . "." . $this->storageItem->getExtension());
-
-        $dirname = $this->storageItem->getDirname();
-
-        $storageFolder = explode("/", $dirname)[0];
-
-        $documentFolderPath = Config::getInDesignServerRoot()."\\" . $storageFolder;
-
-        $additionalData = [new AdditionalData("Document.ExportJPG","pageThumbnailPaths")];
-
-        $clientEvent = "indesignserver.lowres.created";
-
-        $response = new Response($id, Config::getInDesignServerWebhookClientUrls() , $additionalData, $clientEvent);
-
-        /***
-         * Build command
-         */
-        $classname = "Document.ExportJPG";
-
-        $uuid = $this->getStorageItem()->getUuid();
-
-        $extension = $this->storageItem->getExtension();
-
-        $exportFolderPath = Config::getInDesignServerExportPath();
-
-        $commands = [new DocumentExportJPG($classname, $uuid, $extension, $baseName, $exportFolderPath)];
-
-        $ticket = new \Mittax\MediaConverterBundle\Ticket\InDesignServer\Ticket($id, $documentFolderPath ,$response, $commands);
-
-        return $ticket;
+        parent::__construct($builder);
     }
 
+    /**
+     * @return string
+     */
     public function serialize() : string
     {
-        $json = $this->postBuild()->toJson();
+        $ticketPath = __NAMESPACE__. "\\".ucfirst($this->storageItem->getExtension())."\\Generator";
+
+        $ticket = new $ticketPath($this->ticketBuilder);
+
+        $json = $ticket->postBuild()->toJson();
 
         return $json;
     }

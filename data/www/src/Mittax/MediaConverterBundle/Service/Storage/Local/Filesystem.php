@@ -68,6 +68,56 @@ class Filesystem extends FilesystemAbstract
     }
 
     /**
+     * @param string $filePath
+     * @return string
+     * @throws \Exception
+     */
+    public function importBookPackagePathFromUploadFolder(string $filePath): string
+    {
+        /**
+         * create final folder under assets
+         */
+
+        $fileName = str_replace('.indb.zip','.indb', basename($filePath));
+
+        $hash = Upload::md5($fileName);
+
+        $targetFolderName = $hash;
+
+        $targetFolderPath = Config::getStoragePath().'/assets/'.$targetFolderName;
+
+        $filePath = Config::getStoragePath()."/".$filePath;
+
+        if(!file_exists($filePath)) throw new \InvalidArgumentException("Packagefilepath does not exist: " .$filePath);
+
+        /**
+         * extract package
+         */
+        $zip = new \ZipArchive();
+        $zip->open($filePath);
+
+        $zip->extractTo($targetFolderPath);
+        $zip->close();
+
+
+
+        /**
+         * Return indb file
+         */
+        foreach (new \DirectoryIterator($targetFolderPath) as $fileInfo)
+        {
+            if($fileInfo->isDot()) continue;
+
+            if($fileInfo->getExtension()=="indb")
+            {
+                return 'assets/' . $targetFolderName . '/' . $fileInfo->getFilename();
+            }
+        }
+
+        throw new \Exception("No indb file found in packagefolder:" . $targetFolderName);
+    }
+
+    /**
      * @param string $storagePath
      * @return string
      */

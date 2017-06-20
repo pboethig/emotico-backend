@@ -94,6 +94,13 @@ services:
         tags:
             - { name: kernel.event_listener, event: asset.upload.finished}
         arguments: [ "@service_container" ]
+    ################################################################################
+    # fires if a bookpackage was uploaded
+    book.package.upload.finished:
+        class: Mittax\MediaConverterBundle\Event\Listener\Upload\BookPackageUploadFinished
+        tags:
+            - { name: kernel.event_listener, event: book.package.upload.finished}
+        arguments: [ "@service_container" ]
 
     ################################################################################
     # fires if no converter was found for given format

@@ -8,13 +8,9 @@
 
 namespace Mittax\MediaConverterBundle\Tests\Event\Thumbnail;
 
-use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
-use Mittax\MediaConverterBundle\Entity\Thumbnail\Thumbnail;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
 use Mittax\MediaConverterBundle\Ticket\ITicket;
-use Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket\Builder;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Tests\AbstractKernelTestCase;
 use Symfony\Component\EventDispatcher\Event;
 

@@ -23,7 +23,7 @@ class Thumbnail
 
         foreach ($indesignServerResponse->additionalData as $item)
         {
-            if($item->Key=='Document.ExportJPG.pageThumbnailPaths')
+            if(strpos($item->Key,'pageThumbnailPaths')>-1)
             {
                 foreach ($item->Value as $sharePath)
                 {

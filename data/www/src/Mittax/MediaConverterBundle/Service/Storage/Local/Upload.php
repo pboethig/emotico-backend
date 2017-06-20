@@ -9,14 +9,24 @@
 namespace Mittax\MediaConverterBundle\Service\Storage\Local;
 
 use Mittax\MediaConverterBundle\Event\Dispatcher;
-use Mittax\MediaConverterBundle\Event\Upload\AssetUploadFinished;
+use Mittax\MediaConverterBundle\Event\Upload\BookPackageUploadFinished;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use Mittax\MediaConverterBundle\Event\Upload\AssetUploadFinished;
 
 class Upload
 {
+    /**
+     * @var array
+     */
+    private $extensionToEventMap = [
+      'indb.zip'=>[
+          'eventClass'=>'Mittax\MediaConverterBundle\Event\Upload\BookPackageUploadFinished',
+          'eventMethod'=>'onBookPackageUploadFinished'
+      ]
+    ];
 
     /**
      * @var ContainerInterface
@@ -67,8 +77,9 @@ class Upload
 
     /**
      * @param string $originalFileName
+     * @return bool
      */
-    public function dispatchFinishedEvent(string $originalFileName)
+    public function dispatchFinishedEvent(string $originalFileName) : bool
     {
         $fileName = $this->sanitize_filename($originalFileName);
 
@@ -76,9 +87,42 @@ class Upload
 
         $filePath = 'upload/' . $folderName . "/" . $fileName;
 
+        if($this->dispatchPackageEventOnMatchingExtension($fileName, $filePath))
+        {
+            return true;
+        }
+
         $event = new AssetUploadFinished($filePath);
 
-        Dispatcher::dispatch(AssetUploadFinished::NAME, $event);
+        Dispatcher::getInstance()->dispatch(AssetUploadFinished::NAME, $event);
+    }
+
+    /**
+     * @param string $fileName
+     * @param string $filePath
+     * @return bool
+     */
+    public function dispatchPackageEventOnMatchingExtension(string $fileName, string $filePath) : bool
+    {
+        foreach ($this->extensionToEventMap as $extension=>$eventData)
+        {
+            if(strpos($fileName, $extension)>-1)
+            {
+                $event = new $eventData['eventClass']($filePath);
+
+                $dispatcher = new EventDispatcher();
+
+                $listener = new \Mittax\MediaConverterBundle\Event\Listener\Upload\BookPackageUploadFinished($this->container);
+
+                $dispatcher->addListener($event::NAME, array($listener, $eventData['eventMethod']));
+
+                $dispatcher->dispatch($event::NAME, $event);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

@@ -9,6 +9,7 @@
 namespace Mittax\MediaConverterBundle\Tests;
 
 
+use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BaseTest extends KernelTestCase
@@ -48,12 +49,5 @@ class BaseTest extends KernelTestCase
 
         return $profile;
     }
-
-
-    public function testTest()
-    {
-        $this->assertNotEmpty(1);
-    }
-
 
 }
