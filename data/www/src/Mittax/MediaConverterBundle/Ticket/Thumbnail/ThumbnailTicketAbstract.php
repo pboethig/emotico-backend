@@ -75,7 +75,7 @@ class ThumbnailTicketAbstract extends TicketAbstract implements IThumbnailTicket
 
         parent::__construct($builder);
 
-        $this->_jobId = Upload::md5($this->storageItem->getBasename());
+        $this->_jobId = Upload::md5($this->storageItem->getFilename());
     }
 
     /**

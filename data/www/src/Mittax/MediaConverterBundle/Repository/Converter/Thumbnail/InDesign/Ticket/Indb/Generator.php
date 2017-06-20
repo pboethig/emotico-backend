@@ -32,11 +32,11 @@ class Generator extends ThumbnailTicketAbstract
     {
         $classname = "Book.ExportJPG";
 
-        $baseName = rtrim(str_replace($this->storageItem->getExtension(),'', $this->storageItem->getBasename()),'.');
+        $baseName = $this->storageItem->getBasename();
 
-        $fileName = $baseName . "." . $this->storageItem->getExtension();
+        $fileName = $this->storageItem->getFilename();
 
-        $id = Upload::md5($fileName);
+        $uuid = Upload::md5($fileName);
 
         $dirname = $this->storageItem->getDirname();
 
@@ -48,20 +48,17 @@ class Generator extends ThumbnailTicketAbstract
 
         $clientEvent = "indesignserver.lowres.created";
 
-        $response = new Response($id, Config::getInDesignServerWebhookClientUrls() , $additionalData, $clientEvent);
+        $response = new Response($uuid, Config::getInDesignServerWebhookClientUrls() , $additionalData, $clientEvent);
         /***
          * Build command
          */
-
-        $uuid = $id;
-
         $extension = $this->storageItem->getExtension();
 
         $exportFolderPath = Config::getInDesignServerExportPath();
 
         $commands = [new DocumentExportJPG($classname, $uuid, $extension, $baseName, $exportFolderPath)];
 
-        $ticket = new \Mittax\MediaConverterBundle\Ticket\InDesignServer\Ticket($id, $documentFolderPath ,$response, $commands);
+        $ticket = new \Mittax\MediaConverterBundle\Ticket\InDesignServer\Ticket($uuid, $documentFolderPath ,$response, $commands);
 
         return $ticket;
     }

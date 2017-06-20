@@ -58,7 +58,7 @@ class Local extends \League\Flysystem\Adapter\Local implements IAdapter
             'type' => $file->getType(),
             'path' => $this->getFilePath($file),
             'extension' => $file->getExtension(),
-            'basename'=>$file->getBasename(),
+            'basename'=> rtrim(str_replace($file->getExtension(),'',$file->getBasename()),'.'),
             'filename'=>$file->getFilename(),
             'dirname'=>rtrim(str_replace($file->getBasename(),"", $this->getFilePath($file)),"/")
         ];

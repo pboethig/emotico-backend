@@ -48,7 +48,7 @@ class FineDataCreated implements IListener
                     'event' => $event::NAME,
                     'ticketId' => $event->getJobTicket()->getJobId(),
                     'uuid' => Filesystem::getUuidFromPath($storageItem->getDirname()),
-                    'version' => $storageItem->getFilename(),
+                    'version' => $storageItem->getBasename(),
                     'extension' => $storageItem->getExtension(),
                     'thumbnailList' => [Filesystem::convertStoragePathToUrl($event->getJobTicket()->getCurrentTargetStoragePath())],
                     'errors'=> []

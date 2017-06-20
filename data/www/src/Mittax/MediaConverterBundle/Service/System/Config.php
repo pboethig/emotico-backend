@@ -175,11 +175,28 @@ class Config
     }
 
     /**
+     * @return mixed
+     * @throws \Exception
+     */
+    public static function getSharedConfig()
+    {
+        $path = self::getStoragePath() . "/config/networkInfos.json";
+
+        if(!file_get_contents($path)) throw new \Exception("shared configfile: " . $path . ' not found');
+
+        $object = json_decode(file_get_contents($path));
+
+        return $object;
+    }
+
+    /**
      * @return string
      */
     public static function getInDesignServerIp()
     {
-        return self::getPaths()['indesign_server']['ip'];
+        $networkInfos = self::getSharedConfig();
+
+        return $networkInfos->InDesignServerIPAddress;
     }
 
     /**
@@ -317,4 +334,6 @@ class Config
     {
         return self::getEvents($eventName)['tags'][0]['eventListenerMethodName'];
     }
+
+
 }

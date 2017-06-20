@@ -24,9 +24,9 @@ class Generator extends ThumbnailTicketAbstract
 
     public function postBuild()
     {
-        $baseName = rtrim(str_replace($this->storageItem->getExtension(),'', $this->storageItem->getBasename()),'.');
+        $baseName = $this->storageItem->getBasename();
 
-        $id = Upload::md5($baseName . "." . $this->storageItem->getExtension());
+        $uuid = Upload::md5($this->storageItem->getFilename());
 
         $dirname = $this->storageItem->getDirname();
 
@@ -38,7 +38,7 @@ class Generator extends ThumbnailTicketAbstract
 
         $clientEvent = "indesignserver.lowres.created";
 
-        $response = new Response($id, Config::getInDesignServerWebhookClientUrls() , $additionalData, $clientEvent);
+        $response = new Response($uuid, Config::getInDesignServerWebhookClientUrls() , $additionalData, $clientEvent);
 
         /***
          * Build command
@@ -53,15 +53,9 @@ class Generator extends ThumbnailTicketAbstract
 
         $commands = [new DocumentExportJPG($classname, $uuid, $extension, $baseName, $exportFolderPath)];
 
-        $ticket = new \Mittax\MediaConverterBundle\Ticket\InDesignServer\Ticket($id, $documentFolderPath ,$response, $commands);
+        $ticket = new \Mittax\MediaConverterBundle\Ticket\InDesignServer\Ticket($uuid, $documentFolderPath ,$response, $commands);
 
         return $ticket;
     }
 
-    public function serialize() : string
-    {
-        $json = $this->postBuild()->toJson();
-
-        return $json;
-    }
 }

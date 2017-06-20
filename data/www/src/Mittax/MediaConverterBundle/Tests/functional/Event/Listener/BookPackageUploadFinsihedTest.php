@@ -28,9 +28,9 @@ class BookPackageUploadFinshedTest extends AbstractKernelTestCase
 
     public function testimportBookPackagePathFromUploadFolder()
     {
-        $packageFilename = "Book.ExportJPG.indb.zip";
+        $packageFilename = "BookExportJPG.indb.zip";
 
-        $packagePath = Config::getStoragePath() . '/test/buch/'.$packageFilename;
+        $packagePath = '/test/buch/'.$packageFilename;
 
         $folderName = md5(basename($packagePath));
 
@@ -39,11 +39,11 @@ class BookPackageUploadFinshedTest extends AbstractKernelTestCase
          */
         @mkdir(Config::getUploadPath()."/" . $folderName);
 
-        $targetPath= Config::getUploadPath(). "/" .$folderName."/".$packageFilename;
+        $targetPath = $folderName."/".$packageFilename;
 
-        @copy($packagePath,$targetPath);
+        copy(Config::getStoragePath() . $packagePath,Config::getUploadPath(). "/" . $targetPath);
 
-        $this->assertTrue(file_exists($targetPath));
+        $this->assertTrue(file_exists(Config::getUploadPath(). "/" . $targetPath));
 
         /**
          * Dispatch event
@@ -67,9 +67,9 @@ class BookPackageUploadFinshedTest extends AbstractKernelTestCase
 
     public function testdispatchPackageEventOnMatchingExtension()
     {
-        $filename="atestfile.indb.zip";
+        $filename="BookExportJPG.indb.zip";
 
-        $filePath="apath/atestfile.indb.zip";
+        $filePath="test/buch/BookExportJPG.indb.zip";
 
         $upload = new Upload($this->container);
 

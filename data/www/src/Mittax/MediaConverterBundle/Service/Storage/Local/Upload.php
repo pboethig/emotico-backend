@@ -95,6 +95,8 @@ class Upload
         $event = new AssetUploadFinished($filePath);
 
         Dispatcher::getInstance()->dispatch(AssetUploadFinished::NAME, $event);
+
+        return true;
     }
 
     /**

@@ -184,6 +184,13 @@ class ConfigTest extends AbstractKernelTestCase
         $this->assertNotEmpty($path);
     }
 
+    public function testGetSharedConfig()
+    {
+        $sharedConfig = Config::getSharedConfig();
+
+        $this->assertNotEmpty($sharedConfig);
+    }
+
     public function testGetInDesignServerIp()
     {
         $ip = Config::getInDesignServerIp();
