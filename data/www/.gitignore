@@ -47,4 +47,6 @@ npm-debug.log
 data/mariadb
 data/log
 data/backups
-data/storage
+data/storage/upload
+data/storage/asset
+data/storage/export

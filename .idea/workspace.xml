@@ -7,21 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30ed7042-f73c-49a2-ae3b-f463695dd689" name="Default" comment="add gitignore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ib_logfile0" afterPath="$PROJECT_DIR$/data/mariadb/ib_logfile0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ibdata1" afterPath="$PROJECT_DIR$/data/mariadb/ibdata1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/app/config/custom_events.yml" afterPath="$PROJECT_DIR$/data/www/app/config/custom_events.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/app/config/mediaconverter.yml" afterPath="$PROJECT_DIR$/data/www/app/config/mediaconverter.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/InDesign/Ticket/Ticket.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/InDesign/Ticket/Ticket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/InDesignServer/Document/Thumbnail.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/InDesignServer/Document/Thumbnail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Filesystem.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Filesystem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/BaseTest.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/BaseTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Event/Thumbnail/FineDataCreatedTest.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Event/Thumbnail/FineDataCreatedTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/.gitignore" afterPath="$PROJECT_DIR$/data/www/.gitignore" />
     </list>
     <ignored path="emotico.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,16 +31,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookPackageUploadFinsihedTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/functional/Event/Listener/BookPackageUploadFinsihedTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="59" column="0" selection-start-line="52" selection-start-column="8" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EventDispatcher.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/vendor/symfony/symfony/src/Symfony/Component/EventDispatcher/EventDispatcher.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,11 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Debug.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Debug.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/vendor/doctrine/common/lib/Doctrine/Common/Util/Debug.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
               <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/www/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="641">
+              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -177,7 +165,6 @@
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Adapter/Flysystem/Local.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Entity/Storage/StorageItemAbstract.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/QueueController.php" />
-        <option value="$PROJECT_DIR$/data/www/.gitignore" />
         <option value="$PROJECT_DIR$/data/www/var/logs/prod.log" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AbstractController.php" />
@@ -202,6 +189,7 @@
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Upload/BookPackageUploadFinished.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Filesystem.php" />
+        <option value="$PROJECT_DIR$/data/www/.gitignore" />
       </list>
     </option>
   </component>
@@ -513,7 +501,7 @@
       <workItem from="1497811983342" duration="3075000" />
       <workItem from="1497858130135" duration="9475000" />
       <workItem from="1497911085689" duration="5548000" />
-      <workItem from="1497920197571" duration="4610000" />
+      <workItem from="1497920197571" duration="4831000" />
     </task>
     <task id="LOCAL-00001" summary="add wsse parameters">
       <created>1480287708830</created>
@@ -540,7 +528,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1331074000" />
+    <option name="totallyTimeSpent" value="1331295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -684,13 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/www/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1004,6 +985,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding />
         </state>
       </provider>
