@@ -102,9 +102,7 @@ class QueueController extends Controller
 
             $processes->run();
 
-            $processes->wait(function ($type, $buffer) {
-
-            });
+            $processes->wait(function ($type, $buffer) {});
 
             $response->setStatusCode(200);
 

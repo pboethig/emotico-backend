@@ -2,7 +2,6 @@
 
 namespace Mittax\MediaConverterBundle\Controller;
 
-use Jack\Symfony\ProcessManager;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\RabbitMQBundle\Service\Api\Queue;
@@ -40,9 +39,11 @@ class WebsocketController extends AbstractController
 
         try
         {
-            $proc_mgr = new ProcessManager();
+            $processes = new Process("php /var/www/app/console gos:websocket:server");
 
-            $proc_mgr->runParallel([new Process('php /var/www/app/console gos:websocket:server')], 1, 1);
+            $processes->setTimeout(81400);
+
+            $processes->run();
 
             $response->setStatusCode(200);
 
@@ -59,4 +60,6 @@ class WebsocketController extends AbstractController
             return $response;
         }
     }
+
+
 }
