@@ -9,7 +9,10 @@
 namespace Mittax\MediaConverterBundle\Event\Listener\Converter\Ffmpeg;
 
 
+use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
+use Mittax\MediaConverterBundle\Service\System\Config;
+use Mittax\MediaConverterBundle\Service\WebHook\Client;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Mittax\MediaConverterBundle\Event\Listener\IListener;
@@ -42,6 +45,8 @@ class LowresCreated implements IListener
 
         $storageItem = $event->getJobTicket()->getStorageItem();
 
+        $thumbnail = $this->getThumbnailByStorageItem($event);
+
         $message = ['message' =>
             [
                 'event' => $event::NAME,
@@ -49,11 +54,33 @@ class LowresCreated implements IListener
                 'uuid' => Filesystem::getUuidFromPath($storageItem->getDirname()),
                 'version' => $storageItem->getBasename(),
                 'extension' => $storageItem->getExtension(),
-                'thumbnailList' => [Filesystem::convertStoragePathToUrl($event->getJobTicket()->getCurrentTargetStoragePath())],
+                'thumbnailList' => [$thumbnail],
                 'errors'=> []
             ]
         ];
 
         $pusher->push($message, 'mittax_mediaconverter.topic.converter.success', ['username' => 'user1']);
+
+        /**
+         * Notify client backends
+         */
+        $webHookClient =  new Client();
+
+        $webHookClient->call($message, Config::getWebHook($event::NAME));
+    }
+
+    /**
+     * @param $event
+     * @return mixed|string
+     */
+    private function getThumbnailByStorageItem(\Mittax\MediaConverterBundle\Event\Converter\Ffmpeg\LowresCreated $event)
+    {
+        $thumbnail = Filesystem::convertStoragePathToUrl($event->getJobTicket()->getCurrentTargetStoragePath());
+
+        $thumbnail = str_replace(".jpg", '', $thumbnail);
+
+        $thumbnail = $thumbnail . "_lowres.mp4";
+
+        return $thumbnail;
     }
 }

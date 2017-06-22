@@ -27,6 +27,8 @@ class Client
 
             $response = $client->post($clientUrl, ['body' => json_encode($message)]);
 
+            file_put_contents("/var/www/test222.txt", json_encode($message));
+
             $responses[] = $response;
         }
 
