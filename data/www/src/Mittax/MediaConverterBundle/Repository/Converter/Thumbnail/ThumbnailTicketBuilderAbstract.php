@@ -271,7 +271,7 @@ abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements 
     {
         return 'temp/'
 
-        . str_replace('_highres','',$this->_storageItem->getFilename())
+        . $this->_storageItem->getFilename()
 
         . '_'
 
