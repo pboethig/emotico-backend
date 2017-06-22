@@ -1,0 +1,1 @@
+ffmpeg -i "upload/2dd1d791ddd2c2eea28bf40f31d2a10d/sample_highres.3gp" -acodec libmp3lame -ac 2 "export/2dd1d791ddd2c2eea28bf40f31d2a10d/sample_highres.3gp_500x500.downsampled.avi"

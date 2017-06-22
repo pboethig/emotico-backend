@@ -16,7 +16,9 @@ use Mittax\MediaConverterBundle\Event\Converter\Ffmpeg\LowresCreated;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Ticket\Executor\ThumbnailTicketExecutorAbstract;
+use Mittax\MediaConverterBundle\Ticket\ITicket;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
 use \Ffmpeg\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
@@ -55,7 +57,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
             $this->load($ticket->getStorageItem());
 
-            $this->_storeOriginalVideoInTempFolder($ticket);
+            $ticket = $this->downSample($ticket);
 
             $ticket = $this->_createLowres($ticket);
 
@@ -82,7 +84,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
         ]);
 
         //change to root dir to match flysystem root
-        chdir(__DIR__ . '/../../../../../../../../');
+        chdir("/var/www/storage");
 
         $this->_tempFolderVideoPath = $ticket->getCurrentTempFilePath() . '.' . $ticket->getStorageItem()->getExtension();
     }
@@ -98,59 +100,63 @@ class Executor extends ThumbnailTicketExecutorAbstract
     }
 
     /**
-     * Stores thumbnail in local OS tempfolder
-     *
-     * @return bool
-     */
-    private function _storeOriginalVideoInTempFolder(IThumbnailTicket $ticket ) : bool
-    {
-        Filesystem::getCachedAdapter('storage')->copy($ticket->getStorageItem()->getPath(), $this->_tempFolderVideoPath);
-
-        return true;
-    }
-
-    /**
      * @param IThumbnailTicket $ticket
      * @return IThumbnailTicket
      */
     private function _createLowres(IThumbnailTicket $ticket)
     {
-        /**
-         * Downsample VideoFiles
-         */
-        $downsampledFile = 'storage/' . $this->_tempFolderVideoPath . '.downsampled.avi';
-
-        $ffmegDownsampleQuery = 'ffmpeg -i "' . 'storage/' . $this->_tempFolderVideoPath . '" -acodec libmp3lame -ac 2 "' . $downsampledFile . '"';
-
-        $process = new Process($ffmegDownsampleQuery);
-
-        $process->run();
-
+        $exportFolderFilePath = $this->getExportFolderFilePath($ticket);
         /**
          * Create MP4
          */
-        $lowresFilePath = $downsampledFile . '.mp4';
+        $lowresFilePath = $exportFolderFilePath . '_lowres.mp4';
 
-        $ffmpegQuery = 'ffmpeg -i "' . $downsampledFile . '" -vcodec libx264 -crf 25 -acodec aac -strict experimental -threads 0 -t 60 "' . $lowresFilePath . '"';
+        $downSampledFilePath = $exportFolderFilePath .".downsampled.avi";
+
+        $ffmpegQuery = 'ffmpeg -i "' . $downSampledFilePath.'" -vcodec libx264 -crf 25 -acodec aac -strict experimental -threads 0 -t 60 "' . $lowresFilePath . '"';
 
         $process = new Process($ffmpegQuery);
 
         $process->run();
 
-        @unlink($downsampledFile);
+        return $ticket;
+    }
 
-        $targetLowResFilePath = $ticket->getCurrentTargetStoragePath();
+    /**
+     * @param IThumbnailTicket $ticket
+     * @return string
+     */
+    public function downSample(IThumbnailTicket $ticket) : IThumbnailTicket
+    {
+        $exportFolderFilePath = $this->getExportFolderFilePath($ticket);
 
-        $targetLowResFilePath = str_replace(".jpg", "", $targetLowResFilePath) . '_lowres.mp4';
+        /**
+         * Downsample VideoFiles
+         */
+        $downSampledFilePath = $exportFolderFilePath . '.downsampled.avi';
 
-        //@todo: correct paths in ticketBuilder
-        $ticket->setCurrentTargetStoragePath($targetLowResFilePath);
-        
-        Filesystem::getCachedAdapter('storage')->copy(str_replace("storage/", "",$lowresFilePath), $targetLowResFilePath);
+        $ffmegDownsampleQuery = 'ffmpeg -i "' . $ticket->getStorageItem()->getPath() . '" -acodec libmp3lame -ac 2 "' . $downSampledFilePath.'"';
 
-        @unlink($lowresFilePath);
+        $process = new Process($ffmegDownsampleQuery);
+
+        $process->run();
 
         return $ticket;
+    }
+
+    /**
+     * @param IThumbnailTicket $ticket
+     * @return string
+     */
+    public function getExportFolderFilePath(IThumbnailTicket $ticket)
+    {
+        $uuid = Upload::md5($ticket->getStorageItem()->getFilename());
+
+        $fileName = $ticket->getStorageItem()->getFilename(). '_' . $ticket->getCurrentSize()->getWidth() . 'x' . $ticket->getCurrentSize()->getHeight();
+
+        $exportFolderPath = "export/" . $uuid . "/" . $fileName;
+
+        return $exportFolderPath;
     }
 
     /**

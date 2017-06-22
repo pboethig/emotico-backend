@@ -1,0 +1,1 @@
+ffmpeg -i "export/2dd1d791ddd2c2eea28bf40f31d2a10d/sample_highres.3gp_500x500.downsampled.avi" -vcodec libx264 -crf 25 -acodec aac -strict experimental -threads 0 -t 60 "export/2dd1d791ddd2c2eea28bf40f31d2a10d/sample_highres.3gp_500x500_lowres.mp4"

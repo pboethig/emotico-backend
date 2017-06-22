@@ -42,16 +42,18 @@ class LowresCreated implements IListener
 
         $storageItem = $event->getJobTicket()->getStorageItem();
 
-        $message = new \Mittax\MediaConverterBundle\Event\Listener\Messages\LowresCreated(
-            $event::NAME,
-            $event->getJobTicket()->getJobId(),
-            Filesystem::getUuidFromPath($storageItem->getDirname()),
-            $storageItem->getFilename(),
-            $storageItem->getExtension(),
-            [Filesystem::convertStoragePathToUrl($event->getJobTicket()->getCurrentTargetStoragePath())],
-            []
-        );
+        $message = ['message' =>
+            [
+                'event' => $event::NAME,
+                'ticketId' => $event->getJobTicket()->getJobId(),
+                'uuid' => Filesystem::getUuidFromPath($storageItem->getDirname()),
+                'version' => $storageItem->getBasename(),
+                'extension' => $storageItem->getExtension(),
+                'thumbnailList' => [Filesystem::convertStoragePathToUrl($event->getJobTicket()->getCurrentTargetStoragePath())],
+                'errors'=> []
+            ]
+        ];
 
-        $pusher->push($message->toArray(), 'mittax_mediaconverter.topic.converter.success', ['username' => 'user1']);
+        $pusher->push($message, 'mittax_mediaconverter.topic.converter.success', ['username' => 'user1']);
     }
 }

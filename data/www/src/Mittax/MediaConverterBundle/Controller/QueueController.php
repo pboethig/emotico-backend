@@ -57,9 +57,9 @@ class QueueController extends Controller
 
         }catch (\Exception $ex)
         {
-            $response->setContent($ex->getMessage());
+            $response->setContent('{messages":"'.$ex->getMessage().'"}');
 
-            $response->setStatusCode(500);
+            $response->setStatusCode(200);
 
             return $response;
         }
@@ -87,6 +87,7 @@ class QueueController extends Controller
             $allowedCommands = [
                 'mittax:mediaconverter:thumbnail:imagine:startconsumer',
                 'mittax:mediaconverter:thumbnail:ffmpeg:startconsumer',
+                'mittax:mediaconverter:thumbnail:ffmpeg:lowres:startconsumer',
             ];
 
             if(!in_array($command, $allowedCommands))

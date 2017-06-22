@@ -38,7 +38,7 @@ class FfmpegRuntimeException extends Event
         $message = [
             'message' =>
                 [
-                    'errors' => [$event->getException()->getMessage()],
+                    'errors' => [$event->getException()->getMessage().$event->getException()->getTraceAsString()],
                     'eventName'=>$event::NAME,
                     'uuid' => $event->getTicket()->getStorageItem()->getUuid(),
                     'ticketId' => $event->getTicket()->getJobId(),

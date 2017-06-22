@@ -18,8 +18,6 @@ use Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Ffmpeg\LowresTick
 use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Ticket\Executor\ThumbnailTicketExecutorAbstract;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
-use \Ffmpeg\Exception\RuntimeException;
-use Symfony\Component\Process\Process;
 
 /**
  * Class Producer
@@ -53,7 +51,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
     private $_video;
 
     /**
-     * @return callable
+     * @return bool
      */
     public function execute() : bool
     {
@@ -76,14 +74,15 @@ class Executor extends ThumbnailTicketExecutorAbstract
             $this->_cleanUp($ticket);
 
             $this->_dispatchEvent($ticket);
+
         }
         catch (\Exception $e)
         {
-
             if($e->getPrevious())
             {
-                $event = new FfmpegRuntimeException($e->getPrevious(),$ticket);
-            }else
+                $event = new FfmpegRuntimeException($e->getPrevious(), $ticket);
+            }
+            else
             {
                 $event = new FfmpegRuntimeException($e, $ticket);
             }
