@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,15 +17,8 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 
-class AssetController extends Controller
+class AssetController extends AbstractController
 {
-    use ContainerAwareTrait;
-
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
     /**
      * @ApiDoc(
      *  resource=true,
@@ -40,16 +34,11 @@ class AssetController extends Controller
      */
     public function storeAction(Request $request)
     {
-        $response = new Response('{"message":"success"}');
+        $response = $this->getCoresResponse();
+        $response->setContent('{"message":"success"}');
 
         try
         {
-            $response = new Response();
-            $response->headers->set('Access-Control-Allow-Origin', '*');
-            $response->headers->set('Access-Control-Allow-Credentials', 'false');
-            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID');
-            $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS');
-
             if($request->files->get('file'))
             {
                 $uploadService = new Upload($this->container);
@@ -67,6 +56,56 @@ class AssetController extends Controller
         }catch (\Exception $ex)
         {
             $response->setContent('{"error":"'.$ex->getMessage().'"}');
+
+            $response->setStatusCode(500);
+
+            return $response;
+        }
+    }
+
+    /**
+     * @ApiDoc(
+     *  resource=true,
+     *  description="store a base64 image",
+     *  section = "MediaConverter",
+     *  statusCodes={
+     *     200="Returned when successful",
+     *     500="retriving failed"
+     *  },
+     * )
+     *
+     * @Route("/assets/storeBase64Image")
+     */
+    public function storeBase64Image(Request $request)
+    {
+        $response = $this->getCoresResponse();
+        $response->setContent('{"message":"success"}');
+
+        try
+        {
+            if(empty($request->get('filename'))) throw new \InvalidArgumentException('No filename set');
+
+            if(empty($request->get('base64Image'))) throw new \InvalidArgumentException('No base64Image set');
+
+            if($request->get('filename') && $request->get('base64Image'))
+            {
+                $uploadService = new Upload($this->container);
+
+                $file = $uploadService->storeBase64File($request);
+
+                $uploadService->upload($file);
+
+                $uploadService->dispatchFinishedEvent($request->get('filename'));
+
+                return $response;
+            }
+
+
+            return $response;
+
+        }catch (\Exception $ex)
+        {
+            $response->setContent('{"error":"'.$ex->getMessage().$ex->getTraceAsString().'"}');
 
             $response->setStatusCode(500);
 
@@ -120,14 +159,12 @@ class AssetController extends Controller
      */
     public function processAction(Request $request)
     {
-        $response = new Response('{"message":"success"}');
+        $response = $this->getCoresResponse();
+
+        $response->setContent('{"message":"success"}');
 
         try
         {
-            $response->headers->set('Access-Control-Allow-Origin', '*');
-            $response->headers->set('Access-Control-Allow-Credentials', 'false');
-            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID');
-            $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS');
 
             $uploadService = new Upload($this->container);
 

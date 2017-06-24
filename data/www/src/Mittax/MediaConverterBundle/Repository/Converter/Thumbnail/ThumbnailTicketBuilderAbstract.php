@@ -9,14 +9,13 @@
 namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail;
 
 use Imagine\Image\Box;
-use League\Flysystem\Config;
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Entity\Thumbnail\Thumbnail;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Thumbnail\JobTicketFineDataCreated;
 use Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\OutputFormat\IOutputFormat;
 use Mittax\MediaConverterBundle\Service\Format\SupportedFormatsBuilder;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Ticket\ITicket;
 use Mittax\MediaConverterBundle\Ticket\ITicketBuilder;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
@@ -24,6 +23,10 @@ use Mittax\MediaConverterBundle\Ticket\TicketAbstract;
 use Mittax\MediaConverterBundle\ValueObjects\Format;
 use Mittax\MediaConverterBundle\ValueObjects\Size;
 
+/**
+ * Class ThumbnailTicketBuilderAbstract
+ * @package Mittax\MediaConverterBundle\Repository\Converter\Thumbnail
+ */
 abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements ITicketBuilder
 {
     /**
@@ -238,7 +241,7 @@ abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements 
      */
     protected function _buildTargetStoragePath() : string
     {
-        $targetFolder = str_replace('assets/', '', $this->_storageItem->getDirname());
+        $targetFolder = Upload::md5($this->_storageItem->getFilename());
 
         if(!is_dir($targetFolder))
         {

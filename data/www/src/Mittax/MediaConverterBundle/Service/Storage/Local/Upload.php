@@ -8,6 +8,7 @@
 
 namespace Mittax\MediaConverterBundle\Service\Storage\Local;
 
+use Illuminate\Support\Facades\Request;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Upload\BookPackageUploadFinished;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -43,6 +44,23 @@ class Upload
     }
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return UploadedFile
+     */
+    public function storeBase64File(\Symfony\Component\HttpFoundation\Request $request)
+    {
+        $filePath = sys_get_temp_dir() .'/'.$request->get('filename');
+
+        @unlink($filePath);
+
+        $parts = explode(",", $request->get('base64Image'));
+
+        file_put_contents($filePath, base64_decode($parts[1]));
+
+        return new UploadedFile($filePath, $request->get('filename'), null, filesize($filePath), null, true);
+    }
+
+    /**
      * @param UploadedFile $file
      * @return string
      */
@@ -59,11 +77,13 @@ class Upload
 
         @unlink($path . $folderName);
 
-        mkdir($path . $folderName , 0777);
+        @mkdir($path . $folderName , 0777);
 
         $file->move($path.$folderName, $fileName);
 
         return $fileName;
+
+
     }
 
     /**
