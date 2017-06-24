@@ -2,25 +2,15 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/data/www/src/Mittax/RabbitMQBundle/Service/Consumer/Factory.php" description="*" line="60" />
-    <bookmark url="file://$PROJECT_DIR$/../laravelclient/laradock/application/resources/views/bread/assets/datatable.blade.php" description="&lt;div class=&quot;videothumbnails&quot;&gt;0&lt;/div&gt;" line="10" />
-    <bookmark url="file://$PROJECT_DIR$/../laravelclient/laradock/application/resources/views/bread/assets/datatable.blade.php" line="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30ed7042-f73c-49a2-ae3b-f463695dd689" name="Default" comment="add gitignore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ib_logfile0" afterPath="$PROJECT_DIR$/data/mariadb/ib_logfile0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ibdata1" afterPath="$PROJECT_DIR$/data/mariadb/ibdata1" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Resources/views/Asset/upload.html.twig" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/nginx-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/nginx-error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/tc.log" afterPath="$PROJECT_DIR$/data/mariadb/tc.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Builder/ImagineRuntimeException.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Builder/ImagineRuntimeException.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/ThumbnailTicketBuilderAbstract.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/ThumbnailTicketBuilderAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/test222.txt" afterPath="$PROJECT_DIR$/data/www/test222.txt" />
     </list>
     <ignored path="emotico.iws" />
@@ -46,8 +36,8 @@
       <file leaf-file-name="Executor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+            <state relative-caret-position="654">
+              <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -56,9 +46,11 @@
       <file leaf-file-name="AssetController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="93" column="46" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="1481">
+              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding>
+                <element signature="e#58#119#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +58,8 @@
       <file leaf-file-name="Upload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="287">
+              <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
               <folding>
                 <element signature="e#152#191#0#PHP" expanded="true" />
               </folding>
@@ -78,7 +70,7 @@
       <file leaf-file-name="AssetControllerTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="758">
+            <state relative-caret-position="1690">
               <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
@@ -110,6 +102,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prod.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/www/var/logs/prod.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,12 +190,12 @@
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Executor/ThumbnailTicketExecutorAbstract.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Thumbnail/IThumbnailTicket.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Listener/Builder/ImagineRuntimeException.php" />
-        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
         <option value="$PROJECT_DIR$/data/www/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/File/UploadedFile.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/ThumbnailTicketBuilderAbstract.php" />
-        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" />
       </list>
     </option>
   </component>
@@ -421,183 +423,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
+              <option name="myItemId" value="Tests" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mittax" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaConverterBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Converter" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mittax" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaConverterBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Converter" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thumbnail" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mittax" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaConverterBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Converter" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thumbnail" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Imagine" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emotico" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mittax" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaConverterBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Converter" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thumbnail" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Imagine" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ticket" />
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -837,7 +667,7 @@
       <workItem from="1498063888042" duration="1583000" />
       <workItem from="1498071465658" duration="20664000" />
       <workItem from="1498151813103" duration="5712000" />
-      <workItem from="1498201666904" duration="14109000" />
+      <workItem from="1498201666904" duration="17891000" />
     </task>
     <task id="LOCAL-00001" summary="add wsse parameters">
       <created>1480287708830</created>
@@ -864,7 +694,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1384977000" />
+    <option name="totallyTimeSpent" value="1388759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1128,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/www/var/logs/prod.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/www/test123.txt" />
     <entry file="file://$PROJECT_DIR$/data/www/test1234.txt" />
     <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Converter/Ffmpeg/LowresCreated.php">
@@ -1223,14 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Event/Builder/ImagineRuntimeException.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-348">
@@ -1279,27 +1093,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php">
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="93" column="46" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
+        <state relative-caret-position="654">
+          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="287">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
           <folding>
             <element signature="e#152#191#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1481">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding>
+            <element signature="e#58#119#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/var/logs/prod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
+        <state relative-caret-position="1690">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>

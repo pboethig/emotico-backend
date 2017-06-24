@@ -5,25 +5,24 @@ namespace Mittax\MediaConverterBundle\Controller;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
-
+/**
+ * Class AssetController
+ * @package Mittax\MediaConverterBundle\Controller
+ */
 class AssetController extends AbstractController
 {
     /**
      * @ApiDoc(
      *  resource=true,
      *  description="store an asset",
-     *  section = "MediaConverter",
+     *  section = "Assets",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="retriving failed"
@@ -45,7 +44,9 @@ class AssetController extends AbstractController
 
                 foreach ($request->files->get('file') as $file)
                 {
-                    $uploadService->upload($file);
+                    $fileName = $uploadService->upload($file);
+
+                    $uploadService->dispatchFinishedEvent($fileName);
                 }
 
                 return $response;
@@ -67,13 +68,13 @@ class AssetController extends AbstractController
      * @ApiDoc(
      *  resource=true,
      *  description="store a base64 image",
-     *  section = "MediaConverter",
+     *  section = "Assets",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="retriving failed"
      *  },
      * )
-     *
+     * @Method("POST")
      * @Route("/assets/storeBase64Image")
      */
     public function storeBase64Image(Request $request)
@@ -113,41 +114,12 @@ class AssetController extends AbstractController
         }
     }
 
-    /**
-     * @ApiDoc(
-     *  resource=true,
-     *  description="display upload view",
-     *  section = "MediaConverter",
-     *  statusCodes={
-     *     200="Returned when successful",
-     *     500="retriving failed"
-     *  },
-     * )
-     *
-     * @Route("/assets/upload")
-     * @Method({"GET"})
-     */
-    public function uploadAction()
-    {
-        $response = new Response(
-            $this->renderView('MittaxMediaConverterBundle:Asset:upload.html.twig',
-                array(
-                    'publicWebUrl'=>Config::getPublicWebUrl(),
-                    'publicWebSocketUrl'=>Config::getPublicWebSocketUrl()
-                )),
-            200
-        );
-
-        $response->headers->set('Content-Type', 'text/html');
-
-        return $response;
-    }
 
     /**
      * @ApiDoc(
      *  resource=true,
      *  description="trigger import",
-     *  section = "MediaConverter",
+     *  section = "Assets",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="trigger failed"
@@ -165,7 +137,6 @@ class AssetController extends AbstractController
 
         try
         {
-
             $uploadService = new Upload($this->container);
 
             $uploadService->dispatchFinishedEvent($request->get('file'));
@@ -185,7 +156,7 @@ class AssetController extends AbstractController
      * @ApiDoc(
      *  resource=true,
      *  description="outputs asset highres",
-     *  section = "MediaConverter",
+     *  section = "Assets",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="download failed"

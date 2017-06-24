@@ -54,6 +54,8 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
             $this->_storeJPGVersionInTargetStorageFolder($ticket);
 
+            $this->_storeTIFFVersionInTargetStorageFolder($ticket);
+            
             $this->_storePNGVersionInTargetStorageFolder($ticket);
 
             $this->_dispatchEvent($ticket);
@@ -161,6 +163,29 @@ class Executor extends ThumbnailTicketExecutorAbstract
         $im->setImageCompression(0);
         $im->setImageCompressionQuality(100);
         $im->setImageFormat('jpg');
+        $im->writeImage($targetPath);
+
+        return true;
+    }
+
+    /**
+     * @param IThumbnailTicket $ticket
+     * @return bool
+     */
+    protected function _storeTIFFVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
+    {
+        $im = $this->_currentImage->getImagick();
+
+        if($ticket->getStorageItem()->getExtension()=='tiff')
+        {
+            return true;
+        }
+
+        $targetPath = 'storage/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.tiff';
+
+        $im->setImageCompression(0);
+        $im->setImageCompressionQuality(100);
+        $im->setImageFormat('tiff');
         $im->writeImage($targetPath);
 
         return true;
