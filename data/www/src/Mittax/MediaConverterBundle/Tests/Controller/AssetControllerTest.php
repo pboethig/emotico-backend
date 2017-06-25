@@ -5,6 +5,9 @@ namespace Mittax\MediaConverterBundle\Tests\Controller;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * 
+ */
 class AssetControllerTest extends WebTestCase
 {
     public function testUpload()

@@ -24,7 +24,7 @@ class WebsocketController extends AbstractController
      * @ApiDoc(
      *  resource=true,
      *  description="starts the websocket server",
-     *  section = "MediaConverter",
+     *  section = "Websocket",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="retriving failed"

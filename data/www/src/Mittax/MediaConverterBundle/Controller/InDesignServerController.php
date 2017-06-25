@@ -29,7 +29,7 @@ class InDesignServerController extends Controller
      * @ApiDoc(
      *  resource=true,
      *  description="ping indesign server",
-     *  section = "MediaConverter",
+     *  section = "InDesignServer",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="trigger failed"

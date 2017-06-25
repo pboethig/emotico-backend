@@ -69,7 +69,7 @@ class QueueController extends Controller
      * @ApiDoc(
      *  resource=true,
      *  description="starts a messagequeueconsumer",
-     *  section = "MediaConverter",
+     *  section = "Queues",
      *  statusCodes={
      *     200="Returned when successful",
      *     500="retriving failed"

@@ -74,13 +74,23 @@ class AssetController extends AbstractController
      *     500="retriving failed"
      *  },
      * )
-     * @Method("POST")
      * @Route("/assets/storeBase64Image")
      */
     public function storeBase64Image(Request $request)
     {
-        $response = $this->getCoresResponse();
+        $response = new Response();
+        $response->headers->set('Access-Control-Allow-Origin', 'http://172.17.0.1:8080', true);
+        $response->headers->set('Access-Control-Allow-Credentials', 'true', true);
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID', true);
+        $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS', true);
+
         $response->setContent('{"message":"success"}');
+
+        if ($request->getMethod() == 'OPTIONS') {
+            $response->setStatusCode(200);
+            $response->setContent(null);
+            return $response;
+        }
 
         try
         {
