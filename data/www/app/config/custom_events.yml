@@ -38,6 +38,14 @@ services:
         arguments: [ "@service_container" ]
 
     ################################################################################
+    # fires if a highres was cropped video was created
+    imagine.highres.cropping.created:
+        class: Mittax\MediaConverterBundle\Event\Listener\Converter\Imagine\HiresCroppingCreated
+        tags:
+            - { name: kernel.event_listener, event: imagine.highres.cropping.created}
+        arguments: [ "@service_container" ]
+
+    ################################################################################
     # fires if a lowres indd was created
     indesignserver.lowres.created:
         class: Mittax\MediaConverterBundle\Event\Listener\InDesignServer\InDesignServerLowresCreated

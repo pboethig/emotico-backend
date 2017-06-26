@@ -6,3 +6,5 @@ clients:
     - http://172.17.0.1:8080/webhooks/thumbnailFinedataCreated
   ffmpeg.lowres.created:
       - http://172.17.0.1:8080/webhooks/thumbnailFinedataCreated
+  imagine.hires.cropping.created:
+      - http://172.17.0.1:8080/webhooks/hiresCroppingCreated

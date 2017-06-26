@@ -21,15 +21,5 @@ class Producer extends ProducerAbstract
      */
     protected $_exchangeConfigurationTag = 'Indd';
 
-    /**
-     * Leave empty. Consumer will be called on INDD Serverside
-     *
-     * @return Process
-     */
-    public function buildProcess() : Process
-    {
-        $process = new Process('');
-
-        return $process;
-    }
+   
 }

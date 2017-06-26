@@ -21,15 +21,5 @@ class Producer extends ProducerAbstract
      */
     protected $_exchangeConfigurationTag = 'ffmpeg.lowres';
 
-    /**
-     * Override this method to imlement a custom command
-     *
-     * @return Process
-     */
-    public function buildProcess() : Process
-    {
-        $process = new Process('php /var/www/app/console mittax:mediaconverter:thumbnail:ffmpeg:lowres:startconsumer');
-
-        return $process;
-    }
+    
 }

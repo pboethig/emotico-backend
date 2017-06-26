@@ -9,18 +9,13 @@
 namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Ffmpeg\LowresTicket;
 
 use FFMpeg\FFMpeg;
-use FFMpeg\Media\Video;
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Event\Builder\FfmpegRuntimeException;
 use Mittax\MediaConverterBundle\Event\Converter\Ffmpeg\LowresCreated;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
-use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Ticket\Executor\ThumbnailTicketExecutorAbstract;
-use Mittax\MediaConverterBundle\Ticket\ITicket;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
-use \Ffmpeg\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
 
 /**
@@ -34,10 +29,6 @@ class Executor extends ThumbnailTicketExecutorAbstract
      */
     private $_ffmpeg;
 
-    /**
-     * @var string
-     */
-    private $_currentVideoContent;
 
     /**
      * @var string

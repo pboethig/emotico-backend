@@ -129,6 +129,18 @@ mittax_mediaconverter:
           parameters: []
           nowait: true
           exclusive: false
+        # generate croppings
+        ImageCropping:
+          name: ImageCropping
+          queueName: ImageCropping
+          routingKey: ImageCropping
+          type: direct
+          auto_delete: false
+          durable: true
+          passive: false
+          parameters: []
+          nowait: true
+          exclusive: false
       # Chanel to generate lowres videos
         metadata.extract:
           name: e_metadata_extract
