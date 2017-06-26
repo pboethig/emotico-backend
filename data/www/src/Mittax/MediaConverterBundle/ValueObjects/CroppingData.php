@@ -40,6 +40,11 @@ class CroppingData
     private $messurement='px';
 
     /**
+     * @var string
+     */
+    private $hash;
+
+    /**
      * CroppingData constructor.
      */
     public function __construct(\stdClass $croppingData)
@@ -53,5 +58,55 @@ class CroppingData
         $this->left = $croppingData->left;
 
         $this->messurement = $croppingData->messurement;
+
+        $this->hash = $croppingData->hash;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @return float
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTop()
+    {
+        return $this->top;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLeft()
+    {
+        return $this->left;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessurement()
+    {
+        return $this->messurement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
     }
 }

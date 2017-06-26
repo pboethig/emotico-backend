@@ -6,21 +6,20 @@
  * Time: 11:02
  */
 
-namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket;
+namespace Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket;
 
 use Imagine\Image\Point;
 use Imagine\Imagick\Imagine;
-use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
-use Mittax\MediaConverterBundle\Event\Builder\ImagineRuntimeException;
-use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
+use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated;
+use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingException;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
+use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\IExecutor;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
 
 /**
  * Class Executor
- * @package Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket
+ * @package Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket
  */
 class Executor implements IExecutor
 {
@@ -51,32 +50,30 @@ class Executor implements IExecutor
      */
     public function execute() : bool
     {
-        $ticket = $this->_ticket;
-
         try
         {
             $this->_init();
 
-            $this->load($ticket->getStorageItem());
+            $this->loadTiffVersion();
 
-            $this->_storeAssetFolder($ticket);
+            $this->_storeInAssetFolder();
 
-            $this->_dispatchEvent($ticket);
+            $this->_dispatchEvent();
 
-            $this->_cleanUp($ticket);
+            $this->_cleanUp();
         }
         catch (\Exception $e)
         {
             if($e->getPrevious())
             {
-                $event = new ImagineRuntimeException($e->getPrevious(),$ticket);
+                $event = new HiresCroppingException($e->getPrevious(),$this->_ticket);
             }
             else
             {
-                $event = new ImagineRuntimeException($e, $ticket);
+                $event = new HiresCroppingException($e, $this->_ticket);
             }
 
-            Dispatcher::getInstance()->dispatch(ImagineRuntimeException::NAME, $event);
+            Dispatcher::getInstance()->dispatch(HiresCroppingException::NAME, $event);
         }
 
         return true;
@@ -85,47 +82,44 @@ class Executor implements IExecutor
     private function _init()
     {
         $this->_imagine = new Imagine();
-
-        //change to root dir to match flysystem root
-        chdir(__DIR__ . '/../../../../../../../data');
     }
 
     /**
-     * Loads image as stream from flysystem and creates an Imagine Data object
-     *
-     * @param StorageItem $storageItem
      * @return bool
      */
-    public function load(StorageItem $storageItem) : bool
+    public function loadTiffVersion() : bool
     {
-        $stream = fopen('/var/www/storage/'.$storageItem->getPath(), 'r');
+        $stream = fopen(Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath(), 'r');
 
         $this->_currentImage = $this->_imagine->read($stream);
 
         return true;
     }
 
-    /**
-     * @param ICroppingTicket $jobTicket
-     */
-    private function _dispatchEvent(ICroppingTicket $jobTicket)
+
+    private function _dispatchEvent()
     {
-        Dispatcher::getInstance()->dispatch(FineDataCreated::NAME, new FineDataCreated($jobTicket));
+        Dispatcher::getInstance()->dispatch(HiresCroppingCreated::NAME, new HiresCroppingCreated($this->_ticket));
     }
 
     /**
-     * @param ICroppingTicket $ticket
      * @return bool
      */
-    protected function _storeAssetFolder(ICroppingTicket $ticket ): bool
+    protected function _storeInAssetFolder(): bool
     {
+        $targetFolder = Config::getStoragePath() . '/assets/' . $this->_ticket->getJobId();
+
+        @mkdir($targetFolder, 0777);
+
+        $fileName = $this->_ticket->getStorageItem()->getBasename().'_'.$this->_ticket->getCroppingData()->getHash().'_crop.tiff';
+
+        $targetPath = $targetFolder . '/' . $fileName;
+
         $im = $this->_currentImage->getImagick();
 
-        $targetPath = 'storage/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'_crop.tiff';
-
-        $im->setImageCompression(0);
-        $im->setImageCompressionQuality(100);
         $im->setImageFormat('tiff');
+
+        $im->cropImage($this->_ticket->getCroppingData()->getWidth(),$this->_ticket->getCroppingData()->getHeight(), $this->_ticket->getCroppingData()->getTop(), $this->_ticket->getCroppingData()->getLeft());
         $im->writeImage($targetPath);
 
         $im->clear();
@@ -135,10 +129,9 @@ class Executor implements IExecutor
     }
 
     /**
-     * @param ICroppingTicket $ticket
      * @return bool
      */
-    protected function _cleanUp(ICroppingTicket $ticket ) : bool
+    protected function _cleanUp() : bool
     {
         return true;
     }

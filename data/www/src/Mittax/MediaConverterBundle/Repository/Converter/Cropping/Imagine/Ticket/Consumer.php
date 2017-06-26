@@ -6,21 +6,20 @@
  * Time: 11:02
  */
 
-namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket;
+namespace Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket;
 
 use Mittax\MediaConverterBundle\Ticket\Consumer\ConsumerAbstract;
 
-
 /**
- * Class Producer
- * @package Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\ThumbnailTicket\Request
+ * Class Consumer
+ * @package Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket
  */
 class Consumer extends ConsumerAbstract
 {
     /**
      * @var string
      */
-    protected $_exchangeConfigurationTag = 'ImageCropping';
+    protected $_exchangeConfigurationTag = 'imagine.hires.cropping';
 
     /**
      * Classname to execute ticket

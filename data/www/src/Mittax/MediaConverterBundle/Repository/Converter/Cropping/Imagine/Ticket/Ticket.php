@@ -56,4 +56,14 @@ class Ticket implements ICroppingTicket
     {
         return $this->storageItem->getUuid();
     }
+
+    /**
+     * @return CroppingData
+     */
+    public function getCroppingData() : CroppingData
+    {
+        return $this->croppingData;
+    }
+
+
 }

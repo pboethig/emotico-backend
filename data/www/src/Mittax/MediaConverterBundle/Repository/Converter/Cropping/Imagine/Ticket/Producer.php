@@ -19,5 +19,5 @@ class Producer extends ProducerAbstract
     /**
      * @var string
      */
-    protected $_exchangeConfigurationTag = 'ImageCropping';
+    protected $_exchangeConfigurationTag = 'imagine.hires.cropping';
 }

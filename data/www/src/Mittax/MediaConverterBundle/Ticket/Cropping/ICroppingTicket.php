@@ -8,9 +8,9 @@
 
 namespace Mittax\MediaConverterBundle\Ticket\Cropping;
 
-
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Ticket\ITicket;
+use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 
 /**
  * Interface ICroppingTicket
@@ -23,4 +23,8 @@ interface ICroppingTicket extends ITicket
      */
     public function getStorageItem() : StorageItem;
 
+    /**
+     * @return CroppingData
+     */
+    public function getCroppingData() : CroppingData;
 }

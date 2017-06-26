@@ -8,6 +8,7 @@
 
 namespace Mittax\MediaConverterBundle\Entity\Storage;
 
+use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Traits\Creation\Construct;
 use Mittax\ObjectCollection\ICollectionItem;
 use Symfony\Component\Validator\Constraints\Uuid;
@@ -81,7 +82,7 @@ abstract class StorageItemAbstract implements ICollectionItem, IStorageItem
     {
         $this->_rawData = $rawData;
 
-        $this->_uuid = md5($rawData['filename']);
+        $this->_uuid = Upload::md5($rawData['filename']);
 
         $this->constructByKeyValue($rawData);
     }

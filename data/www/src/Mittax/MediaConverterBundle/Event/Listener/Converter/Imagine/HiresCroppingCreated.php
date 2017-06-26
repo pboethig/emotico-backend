@@ -36,7 +36,7 @@ class HiresCroppingCreated implements IListener
     /**
      * @param \Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated $event
      */
-    public function onImagineHighresCroppingCreated(\Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated $event)
+    public function onImagineHiresCroppingCreated(\Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated $event)
     {
         $pusher = $this->container->get('mittax_mediaconverter.websocket.pusher');
 
@@ -46,10 +46,10 @@ class HiresCroppingCreated implements IListener
             [
                 'event' => $event::NAME,
                 'ticketId' => $event->getJobTicket()->getJobId(),
-                'uuid' => Filesystem::getUuidFromPath($storageItem->getDirname()),
+                'uuid' => $event->getJobTicket()->getJobId(),
                 'version' => $storageItem->getBasename(),
                 'extension' => $storageItem->getExtension(),
-                'thumbnailList' => [],
+                'hash' => $event->getJobTicket()->getCroppingData()->getHash(),
                 'errors'=> []
             ]
         ];

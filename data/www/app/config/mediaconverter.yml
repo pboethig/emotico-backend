@@ -129,11 +129,11 @@ mittax_mediaconverter:
           parameters: []
           nowait: true
           exclusive: false
-        # generate croppings
-        ImageCropping:
-          name: ImageCropping
-          queueName: ImageCropping
-          routingKey: ImageCropping
+        # generate image hires croppings
+        imagine.hires.cropping:
+          name: e_imageine_hires_cropping
+          queueName: q_imageine_hires_cropping
+          routingKey: r_imageine_hires_cropping
           type: direct
           auto_delete: false
           durable: true

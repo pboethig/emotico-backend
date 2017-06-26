@@ -6,7 +6,7 @@
  * Time: 22:29
  */
 
-namespace Mittax\MediaConverterBundle\Tests\Event\Thumbnail;
+namespace Mittax\MediaConverterBundle\Tests\Event\Cropping;
 
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated;
@@ -33,8 +33,9 @@ class HighresCroppingCreatedTest extends AbstractKernelTestCase
 
     public function testInstance()
     {
+        $testAsset = "test/croppingtest/dsci1424.jpg";
 
-        $imageMetadata = Filesystem::getCachedAdapter('storage')->getMetadata($this->_testPathList[0]);
+        $imageMetadata = Filesystem::getCachedAdapter('storage')->getMetadata($testAsset);
 
         $storageItem = new StorageItem($imageMetadata);
 

@@ -25,9 +25,9 @@ class Client
                 'headers' => [ 'Content-Type' => 'application/json' ]
             ]);
 
-            $response = $client->post($clientUrl, ['body' => json_encode($message)]);
+            file_put_contents("/var/www/text333.log", json_encode($message));
 
-            file_put_contents("/var/www/test222.txt", json_encode($message));
+            $response = $client->post($clientUrl, ['body' => json_encode($message)]);
 
             $responses[] = $response;
         }

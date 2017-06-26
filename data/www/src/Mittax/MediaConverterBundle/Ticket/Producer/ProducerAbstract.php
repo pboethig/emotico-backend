@@ -8,12 +8,8 @@
 
 namespace Mittax\MediaConverterBundle\Ticket\Producer;
 
-use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\MessageQueue\AbstractRequest;
 use Mittax\RabbitMQBundle\Service\Producer\Confirm\Type\Direct;
-use Symfony\Component\Process\Process;
-
-use Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Imagine\Ticket\Consumer;
 /**
  * Class ProducerAbstract
  * @package Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Ffmpeg\ThumbnailTicket\Producer
