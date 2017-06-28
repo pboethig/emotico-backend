@@ -1,0 +1,1 @@
+convert "/var/www/storage/assets/8768a7b0cd2fefe87f64d8b25f13ac3c/testimage1 (1.005. kopie).tif" -crop 359x201+45+60 "/var/www/storage/assets/8768a7b0cd2fefe87f64d8b25f13ac3c/testimage1 (1.005. kopie)_f0e704283b5a891c30c737ffc213e1d4_crop.tiff"

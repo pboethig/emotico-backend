@@ -30,9 +30,9 @@ abstract class ConsumerAbstract extends AbstractRequest
      */
     public function execute() : bool
     {
-            $consumer = new Direct($this->_request);
+        $consumer = new Direct($this->_request);
 
-            $consumer->execute();
+        $consumer->execute();
 
         return true;
     }

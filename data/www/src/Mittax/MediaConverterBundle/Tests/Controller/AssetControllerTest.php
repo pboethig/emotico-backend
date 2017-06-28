@@ -2,22 +2,70 @@
 
 namespace Mittax\MediaConverterBundle\Tests\Controller;
 
+use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * 
+ * Class AssetControllerTest
+ * @package Mittax\MediaConverterBundle\Tests\Controller
  */
 class AssetControllerTest extends WebTestCase
 {
-    public function testUpload()
+
+
+    public function testGenerateHiresCropping()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/assets/upload');
+        /**
+         * Create payload
+         */
+        $asset = new \stdClass();
+        $asset->uuid=Upload::md5('23123123123_highres.tiff'); // must exist
+        $asset->version="23123123123_highres"; //must exist
 
-        $this->assertNotNull($crawler);
+        $canvasdata = new \stdClass();
+        $canvasdata->width=100;
+        $canvasdata->height=100;
+        $canvasdata->top=10;
+        $canvasdata->left=10;
+        $canvasdata->messurement='px';
+        $canvasdata->hash='323232323hkj2h3k2jh3';
+
+        $payload = new \stdClass();
+        $payload->asset = $asset;
+        $payload->canvasdata = $canvasdata;
+        $payload = json_encode($payload);
+
+        /**
+         * import testfile
+         */
+        $testFilePath = Config::getStoragePath().'/test/'.$asset->uuid."/".$asset->version.".tiff";
+        @mkdir(Config::getStoragePath()."/assets/" . $asset->uuid);
+
+        $targetPath = Config::getStoragePath().'/assets/'.$asset->uuid."/".$asset->version.".tiff";
+
+        copy($testFilePath, $targetPath);
+
+        $this->assertTrue(file_exists($targetPath));
+
+        /**
+         * Test controller
+         */
+        $client->request("POST", "/assets/generateHiresCropping",[], [],
+            [
+                'CONTENT_TYPE' => 'application/json',
+                'HTTP_X-Requested-With' => 'XMLHttpRequest'
+            ],
+            $payload);
+
+        $response = json_decode($client->getResponse()->getContent());
+
+        $this->assertEquals($response->message, 'success');
     }
+
 
     public function testDownloadHighresAction()
     {

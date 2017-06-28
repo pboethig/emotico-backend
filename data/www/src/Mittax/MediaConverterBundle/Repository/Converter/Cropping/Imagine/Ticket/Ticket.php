@@ -4,6 +4,7 @@ namespace Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Tick
 
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
+use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
 use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 
 /**
@@ -23,14 +24,23 @@ class Ticket implements ICroppingTicket
     private $croppingData;
 
     /**
+     * @var BrowserImageData
+     */
+    private $browserImageData;
+
+    /**
      * Ticket constructor.
      * @param StorageItem $storageItem
+     * @param CroppingData $croppingData
+     * @param BrowserImageData $browserImageData
      */
-    public function __construct(StorageItem $storageItem, CroppingData $croppingData)
+    public function __construct(StorageItem $storageItem, CroppingData $croppingData, BrowserImageData $browserImageData)
     {
         $this->storageItem = $storageItem;
         
         $this->croppingData = $croppingData;
+
+        $this->browserImageData = $browserImageData;
     }
 
     /**
@@ -65,5 +75,11 @@ class Ticket implements ICroppingTicket
         return $this->croppingData;
     }
 
-
+    /**
+     * @return BrowserImageData
+     */
+    public function getBrowserImageData() : BrowserImageData
+    {
+        return $this->browserImageData;
+    }
 }

@@ -10,6 +10,7 @@ namespace Mittax\MediaConverterBundle\Ticket\Cropping;
 
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Ticket\ITicket;
+use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
 use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 
 /**
@@ -27,4 +28,10 @@ interface ICroppingTicket extends ITicket
      * @return CroppingData
      */
     public function getCroppingData() : CroppingData;
+
+    /**
+     * @return BrowserImageData
+     */
+    public function getBrowserImageData() : BrowserImageData;
+
 }

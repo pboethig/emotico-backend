@@ -20,6 +20,8 @@ class Local extends \League\Flysystem\Adapter\Local implements IAdapter
      */
    public function __construct(string $rootDir)
    {
+       chdir("/var/www");
+       
        if (!is_dir($rootDir))
        {
            mkdir($rootDir, 0777);

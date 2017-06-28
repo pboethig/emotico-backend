@@ -12,6 +12,8 @@ use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket\Producer;
 use Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket\Ticket;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
+use Mittax\MediaConverterBundle\Service\System\Config;
+use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
 use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 
 /**
@@ -31,15 +33,27 @@ class Facade
     private $croppingData;
 
     /**
+     * @var Ticket[]
+     */
+    private $tickets;
+
+    /**
+     * @var BrowserImageData
+     */
+    private $browserImageData;
+
+    /**
      * Facade constructor.
      * @param string $storagePath
      * @param CroppingData $croppingData
      */
-    public function __construct(string $storagePath, CroppingData $croppingData)
+    public function __construct(string $storagePath, CroppingData $croppingData, BrowserImageData $browserImageData)
     {
         $this->storagePath = $storagePath;
 
         $this->croppingData = $croppingData;
+
+        $this->browserImageData = $browserImageData;
     }
 
     /**
@@ -51,10 +65,18 @@ class Facade
 
         $storageItem = new StorageItem($imageMetadata);
 
-        $ticket = new Ticket($storageItem, $this->croppingData);
+        $this->tickets = [new Ticket($storageItem, $this->croppingData, $this->browserImageData)];
 
-        $producer = new Producer([$ticket]);
+        $producer = new Producer($this->tickets);
 
         return $producer->execute();
+    }
+
+    /**
+     * @return Ticket[]
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
     }
 }

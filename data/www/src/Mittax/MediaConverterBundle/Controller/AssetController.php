@@ -2,8 +2,12 @@
 
 namespace Mittax\MediaConverterBundle\Controller;
 
+use Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket\Consumer;
+use Mittax\MediaConverterBundle\Service\Converter\Cropping\Facade;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
+use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
+use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,18 +83,6 @@ class AssetController extends AbstractController
     public function storeBase64Image(Request $request)
     {
         $response = new Response();
-        $response->headers->set('Access-Control-Allow-Origin', 'http://172.17.0.1:8080', true);
-        $response->headers->set('Access-Control-Allow-Credentials', 'true', true);
-        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Cache-Control, Accept, Origin, X-Session-ID', true);
-        $response->headers->set('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,TRACE,COPY,LOCK,MKCOL,MOVE,PROPFIND,PROPPATCH,UNLOCK,REPORT,MKACTIVITY,CHECKOUT,MERGE,M-SEARCH,NOTIFY,SUBSCRIBE,UNSUBSCRIBE,PATCH,OPTIONS', true);
-
-        $response->setContent('{"message":"success"}');
-
-        if ($request->getMethod() == 'OPTIONS') {
-            $response->setStatusCode(200);
-            $response->setContent(null);
-            return $response;
-        }
 
         try
         {
@@ -111,10 +103,10 @@ class AssetController extends AbstractController
                 return $response;
             }
 
-
             return $response;
 
-        }catch (\Exception $ex)
+        }
+        catch (\Exception $ex)
         {
             $response->setContent('{"error":"'.$ex->getMessage().$ex->getTraceAsString().'"}');
 
@@ -123,7 +115,6 @@ class AssetController extends AbstractController
             return $response;
         }
     }
-
 
     /**
      * @ApiDoc(
@@ -193,5 +184,85 @@ class AssetController extends AbstractController
         }
 
         return $response;
+    }
+
+    /**
+     * @ApiDoc(
+     *  resource=true,
+     *  description="generates highres cropping: ",
+     *  section = "Assets",
+     *  statusCodes={
+     *     200="Returned when successful",
+     *     500="download failed"
+     *  },
+     * )
+     * @Route("/assets/generateHiresCropping")
+     *
+     * @Method({"POST"})
+     * {"asset":{"id":932,"uuid":"test123","version":"testasset","extension":".jpg","created_at":"2017-06-27 13:00:32","updated_at":"2017-06-27 13:00:32","thumbnailList":"[\"thumb1.jpg\",\"thumb2.jpg\"]"},"canvasdata":{"top":10,"left":10,"width":10,"height":10,"messurement":"px"}}
+     * @todo: create request validator and move validation logic
+     */
+    public function generateHiresCropping(Request $request)
+    {
+        try
+        {
+            $json = json_decode($request->getContent());
+
+            $asset = $json->asset;
+
+            $canvasdata = $json->canvasdata;
+
+            $browserimagedata = $json->browserimagedata;
+
+            $this->validateCroppingData($canvasdata, $asset);
+
+            $storagePath = 'assets/' . $asset->uuid . '/' . $asset->version . '.' . $asset->extension;
+
+            if(!file_exists(Config::getStoragePath() . '/' .$storagePath))
+            {
+                $response = new Response('file: ' . $storagePath . ' not found');
+
+                $response->setStatusCode(404);
+
+                return $response;
+            }
+
+            $croppingFacade = new Facade($storagePath, new CroppingData($canvasdata), new BrowserImageData($browserimagedata));
+
+            $croppingFacade->produce();
+            
+            //$consumer = new Consumer($croppingFacade->getTickets());
+
+            //$consumer->execute();
+        }
+        catch (\Exception $ex)
+        {
+            return new Response($ex->getMessage() . $ex->getTraceAsString(), 500);
+        }
+
+        return ['message'=>'success'];
+    }
+
+    /**
+     * @param \stdClass $canvasdata
+     * @param \stdClass $asset
+     */
+    private function validateCroppingData(\stdClass $canvasdata, \stdClass $asset)
+    {
+        if(!isset($asset->version)) throw new \InvalidArgumentException('request object asset invalid. property version missing');
+
+        if(!isset($asset->version)) throw new \InvalidArgumentException('request object asset invalid. property uuid missing');
+
+        if(!isset($canvasdata->width)) throw new \InvalidArgumentException('request object canvasdata invalid. property width missing');
+
+        if(!isset($canvasdata->height)) throw new \InvalidArgumentException('request object canvasdata invalid. property height missing');
+
+        if(!isset($canvasdata->top)) throw new \InvalidArgumentException('request object canvasdata invalid. property top missing');
+
+        if(!isset($canvasdata->left)) throw new \InvalidArgumentException('request object canvasdata invalid. property left missing');
+
+        if(!isset($canvasdata->hash)) throw new \InvalidArgumentException('request object canvasdata invalid. hash missing');
+
+
     }
 }

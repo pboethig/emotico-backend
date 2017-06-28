@@ -15,24 +15,24 @@ namespace Mittax\MediaConverterBundle\ValueObjects;
 class CroppingData
 {
     /**
-     * @var float
+     * @var int
      */
-    private $width = 0.00;
+    private $width = 0;
 
     /**
-     * @var float
+     * @var int
      */
-    private $height = 0.00;
+    private $height = 0;
 
     /**
-     * @var float
+     * @var int
      */
-    private $top = 0.00;
+    private $top = 0;
 
     /**
-     * @var float
+     * @var int
      */
-    private $left = 0.00;
+    private $left = 0;
 
     /**
      * @var string
@@ -49,17 +49,22 @@ class CroppingData
      */
     public function __construct(\stdClass $croppingData)
     {
-        $this->width = $croppingData->width;
+        //imagemackig only accepts integer
+        $this->width = (int)$croppingData->width;
 
-        $this->height = $croppingData->height;
+        $this->height = (int)$croppingData->height;
 
-        $this->top = $croppingData->top;
+        $this->top = (int)$croppingData->top;
 
-        $this->left = $croppingData->left;
+        $this->left = (int)$croppingData->left;
 
-        $this->messurement = $croppingData->messurement;
+        if(isset($croppingData->messurement)){
+            $this->messurement = $croppingData->messurement;
+        }
 
-        $this->hash = $croppingData->hash;
+        if(isset($croppingData->hash)){
+            $this->hash = $croppingData->hash;
+        }
     }
 
     /**

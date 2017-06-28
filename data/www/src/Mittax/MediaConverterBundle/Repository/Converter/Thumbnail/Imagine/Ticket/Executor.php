@@ -20,6 +20,7 @@ use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\ThumbnailTicketExecutorAbstract;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
+use Symfony\Component\Process\Process;
 
 /**
  * Class Producer
@@ -151,48 +152,49 @@ class Executor extends ThumbnailTicketExecutorAbstract
      */
     protected function _storeJPGVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
     {
-        $im = $this->_currentImage->getImagick();
-
         if($ticket->getStorageItem()->getExtension()=='jpg')
         {
             return true;
         }
 
-        $targetPath = 'storage/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.jpg';
+        $targetPath = Config::getStoragePath().'/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.jpg';
 
-        $im->setImageCompression(0);
-        $im->setImageCompressionQuality(100);
-        $im->setImageFormat('jpg');
-        $im->writeImage($targetPath);
+        $command = 'convert '.Config::getStoragePath().'/'.$ticket->getStorageItem()->getPath() .' '. $targetPath;
+
+        $process = new Process($command);
+
+        $process->run();
 
         return true;
     }
 
     /**
      * @param IThumbnailTicket $ticket
+     * use imagemagic convert to keep original size
      * @return bool
      */
     protected function _storeTIFFVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
     {
-        $im = $this->_currentImage->getImagick();
-
         if($ticket->getStorageItem()->getExtension()=='tiff')
         {
             return true;
         }
 
-        $targetPath = 'storage/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.tiff';
+        $targetPath = Config::getStoragePath().'/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.tiff';
 
-        $im->setImageCompression(0);
-        $im->setImageCompressionQuality(100);
-        $im->setImageFormat('tiff');
-        $im->writeImage($targetPath);
+        $command = 'convert '.Config::getStoragePath().'/'.$ticket->getStorageItem()->getPath() .' '. $targetPath;
+
+        $process = new Process($command);
+
+        $process->run();
 
         return true;
     }
 
     /**
      * @param IThumbnailTicket $ticket
+     * keep imagemick to autoreduce to webformats
+     *
      * @return bool
      */
     protected function _storePNGVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool

@@ -16,6 +16,9 @@ use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\IExecutor;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
+use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
+use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
+use Symfony\Component\Process\Process;
 
 /**
  * Class Executor
@@ -107,6 +110,8 @@ class Executor implements IExecutor
      */
     protected function _storeInAssetFolder(): bool
     {
+        $sourceImage = Config::getStoragePath().'/'.$this->_ticket->getStorageItem()->getPath();
+
         $targetFolder = Config::getStoragePath() . '/assets/' . $this->_ticket->getJobId();
 
         @mkdir($targetFolder, 0777);
@@ -115,17 +120,52 @@ class Executor implements IExecutor
 
         $targetPath = $targetFolder . '/' . $fileName;
 
-        $im = $this->_currentImage->getImagick();
+        $scaledCroppingData = $this->getScaledCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData());
 
-        $im->setImageFormat('tiff');
+        $command = 'convert "'. $sourceImage
+            . '" -crop '
+            . $scaledCroppingData->getWidth()
+            . 'x' . $scaledCroppingData->getHeight()
+            . '+' . $scaledCroppingData->getTop()
+            . '+' . $scaledCroppingData->getLeft()
+            . ' "' . $targetPath . '"';
 
-        $im->cropImage($this->_ticket->getCroppingData()->getWidth(),$this->_ticket->getCroppingData()->getHeight(), $this->_ticket->getCroppingData()->getTop(), $this->_ticket->getCroppingData()->getLeft());
-        $im->writeImage($targetPath);
 
-        $im->clear();
-        $im->destroy();
+        $process = new Process($command);
+
+        $process->run();
+
+        echo "\n----------------Scaled-------------------\n";
 
         return true;
+    }
+
+    /**
+     * @param CroppingData $croppingData
+     * @param BrowserImageData $browserImageData
+     * @return CroppingData
+     */
+    public function getScaledCroppingData(CroppingData $croppingData, BrowserImageData $browserImageData)
+    {
+        list($origialWidth, $originalHeight) = getimagesize(Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath());
+
+        $scalingFactor =  $origialWidth / $browserImageData->getNaturalWidth();
+
+        var_dump($scalingFactor);
+
+        $cropWith = $croppingData->getWidth()  * $scalingFactor;
+        $cropHeight = $croppingData->getHeight() * $scalingFactor;
+
+        $top = $croppingData->getTop() * $scalingFactor;
+        $left = $croppingData->getLeft() * $scalingFactor;
+
+        $scaledCropping = new \stdClass();
+        $scaledCropping->width=$cropWith;
+        $scaledCropping->height=$cropHeight;
+        $scaledCropping->top=$top;
+        $scaledCropping->left=$left;
+
+        return new CroppingData($scaledCropping);
     }
 
     /**
