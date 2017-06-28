@@ -30,44 +30,19 @@ class Scaling
     {
         list($origialWidth, $originalHeight) = getimagesize($storagePath);
 
-        $scalingFactorWidth =  $origialWidth / $browserImageData->getWidth();
+        $scalingFactorWidth =  $origialWidth / $browserImageData->getNaturalWidth();
 
-        $scalingFactorHeight =  $originalHeight / $browserImageData->getHeight();
-
-        echo "\n------------BIW---------------\n";
-        var_dump($browserImageData->getWidth());
-
-        echo "\n------------OW---------------\n";
-        var_dump($origialWidth);
-
-        echo "\n------------OH---------------\n";
-        var_dump($originalHeight);
-
-
-        echo "\n------------SW---------------\n";
-        var_dump($scalingFactorWidth);
-
-        echo "\n------------SH---------------\n";
-        var_dump($scalingFactorHeight);
+        $scalingFactorHeight =  $originalHeight / $browserImageData->getNaturalHeight();
 
         $scaledCropping = new \stdClass();
 
-        echo "\n------------BW---------------\n";
-        var_dump($browserCroppingData->getWidth());
+        $scaledCropping->width  = ($browserCroppingData->getWidth()  * $scalingFactorWidth);
 
-        echo "\n------------BH---------------\n";
-        var_dump($browserCroppingData->getHeight());
+        $scaledCropping->height = ($browserCroppingData->getHeight() * $scalingFactorHeight);
 
-        echo "\n---------------------------\n";
+        $scaledCropping->top    = ($browserCroppingData->getTop() * $scalingFactorHeight);
 
-
-        $scaledCropping->width  = (int)($browserCroppingData->getWidth()  * $scalingFactorWidth);
-
-        $scaledCropping->height = (int)($browserCroppingData->getHeight() * $scalingFactorHeight);
-
-        $scaledCropping->top    = (int)($browserCroppingData->getTop() * $scalingFactorHeight);
-
-        $scaledCropping->left   = (int)($browserCroppingData->getLeft() * $scalingFactorWidth);
+        $scaledCropping->left   = ($browserCroppingData->getLeft() * $scalingFactorWidth);
 
         return new CroppingData($scaledCropping);
     }

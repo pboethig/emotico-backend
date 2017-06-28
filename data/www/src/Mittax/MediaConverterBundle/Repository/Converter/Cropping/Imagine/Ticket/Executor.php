@@ -13,11 +13,10 @@ use Imagine\Imagick\Imagine;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingException;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
+use Mittax\MediaConverterBundle\Service\Converter\Cropping\Scaling;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\IExecutor;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
-use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
-use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 use Symfony\Component\Process\Process;
 
 /**
@@ -55,15 +54,9 @@ class Executor implements IExecutor
     {
         try
         {
-            $this->_init();
-
-            $this->loadTiffVersion();
-
-            $this->_storeInAssetFolder();
+            $this->cropToAssetFolder();
 
             $this->_dispatchEvent();
-
-            $this->_cleanUp();
         }
         catch (\Exception $e)
         {
@@ -82,24 +75,6 @@ class Executor implements IExecutor
         return true;
     }
 
-    private function _init()
-    {
-        $this->_imagine = new Imagine();
-    }
-
-    /**
-     * @return bool
-     */
-    public function loadTiffVersion() : bool
-    {
-        $stream = fopen(Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath(), 'r');
-
-        $this->_currentImage = $this->_imagine->read($stream);
-
-        return true;
-    }
-
-
     private function _dispatchEvent()
     {
         Dispatcher::getInstance()->dispatch(HiresCroppingCreated::NAME, new HiresCroppingCreated($this->_ticket));
@@ -108,7 +83,7 @@ class Executor implements IExecutor
     /**
      * @return bool
      */
-    protected function _storeInAssetFolder(): bool
+    protected function cropToAssetFolder(): bool
     {
         $sourceImage = Config::getStoragePath().'/'.$this->_ticket->getStorageItem()->getPath();
 
@@ -120,7 +95,9 @@ class Executor implements IExecutor
 
         $targetPath = $targetFolder . '/' . $fileName;
 
-        $scaledCroppingData = $this->getScaledCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData());
+        $storagePath = Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath();
+
+        $scaledCroppingData = Scaling::getHiresCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData(), $storagePath);
 
         $command = 'convert "'. $sourceImage
             . '" -crop '
@@ -135,44 +112,6 @@ class Executor implements IExecutor
 
         $process->run();
 
-        echo "\n----------------Scaled-------------------\n";
-
-        return true;
-    }
-
-    /**
-     * @param CroppingData $croppingData
-     * @param BrowserImageData $browserImageData
-     * @return CroppingData
-     */
-    public function getScaledCroppingData(CroppingData $croppingData, BrowserImageData $browserImageData)
-    {
-        list($origialWidth, $originalHeight) = getimagesize(Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath());
-
-        $scalingFactor =  $origialWidth / $browserImageData->getNaturalWidth();
-
-        var_dump($scalingFactor);
-
-        $cropWith = $croppingData->getWidth()  * $scalingFactor;
-        $cropHeight = $croppingData->getHeight() * $scalingFactor;
-
-        $top = $croppingData->getTop() * $scalingFactor;
-        $left = $croppingData->getLeft() * $scalingFactor;
-
-        $scaledCropping = new \stdClass();
-        $scaledCropping->width=$cropWith;
-        $scaledCropping->height=$cropHeight;
-        $scaledCropping->top=$top;
-        $scaledCropping->left=$left;
-
-        return new CroppingData($scaledCropping);
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _cleanUp() : bool
-    {
         return true;
     }
 }

@@ -6,26 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30ed7042-f73c-49a2-ae3b-f463695dd689" name="Default" comment="add gitignore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/aria_log.00000001" afterPath="$PROJECT_DIR$/data/mariadb/aria_log.00000001" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/aria_log_control" afterPath="$PROJECT_DIR$/data/mariadb/aria_log_control" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ib_logfile0" afterPath="$PROJECT_DIR$/data/mariadb/ib_logfile0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/ibdata1" afterPath="$PROJECT_DIR$/data/mariadb/ibdata1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-access.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-php70-error.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-access.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" afterPath="$PROJECT_DIR$/data/log/nginx/default-storage-error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mariadb/tc.log" afterPath="$PROJECT_DIR$/data/mariadb/tc.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Controller/AssetController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Executor.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Executor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Ticket.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Ticket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Facade.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Facade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Adapter/Flysystem/Local.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Adapter/Flysystem/Local.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Tests/Controller/AssetControllerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Consumer/ConsumerAbstract.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Consumer/ConsumerAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Cropping/ICroppingTicket.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Ticket/Cropping/ICroppingTicket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/ValueObjects/CroppingData.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/ValueObjects/CroppingData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php" afterPath="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/www/text333.log" afterPath="$PROJECT_DIR$/data/www/text333.log" />
     </list>
     <ignored path="emotico.iws" />
@@ -51,8 +36,8 @@
       <file leaf-file-name="Executor.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Executor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="122" column="58" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="58" />
+            <state relative-caret-position="805">
+              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="e#175#199#0#PHP" expanded="true" />
               </folding>
@@ -143,8 +128,8 @@
       <file leaf-file-name="Scaling.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="866">
-              <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+            <state relative-caret-position="684">
+              <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
               <folding>
                 <element signature="e#157#219#0#PHP" expanded="true" />
               </folding>
@@ -205,11 +190,11 @@
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Ticket.php" />
         <option value="$PROJECT_DIR$/data/www/text22222" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/ValueObjects/CroppingData.php" />
-        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Thumbnail/Imagine/Ticket/Executor.php" />
         <option value="$PROJECT_DIR$/data/www/app/config/mediaconverter.yml" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Storage/Local/Upload.php" />
         <option value="$PROJECT_DIR$/data/www/test4.txt" />
+        <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php" />
         <option value="$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Executor.php" />
       </list>
     </option>
@@ -734,7 +719,7 @@
       <workItem from="1498314699523" duration="8420000" />
       <workItem from="1498381904867" duration="5035000" />
       <workItem from="1498462164909" duration="70175000" />
-      <workItem from="1498645979697" duration="11530000" />
+      <workItem from="1498645979697" duration="12848000" />
     </task>
     <task id="LOCAL-00001" summary="add wsse parameters">
       <created>1480287708830</created>
@@ -761,7 +746,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1483919000" />
+    <option name="totallyTimeSpent" value="1485237000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1070,16 +1055,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="866">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-          <folding>
-            <element signature="e#157#219#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_d.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -1128,10 +1103,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Service/Converter/Cropping/Scaling.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="e#157#219#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/www/src/Mittax/MediaConverterBundle/Repository/Converter/Cropping/Imagine/Ticket/Executor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="122" column="58" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="58" />
+        <state relative-caret-position="805">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="e#175#199#0#PHP" expanded="true" />
           </folding>
