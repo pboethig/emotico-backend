@@ -1,0 +1,1 @@
+convert /var/www/storage/upload/96b6073e2376fad5fe03f225f4a7356e/23123123123_highres.psd -coalesce /var/www/storage/assets/96b6073e2376fad5fe03f225f4a7356e/23123123123_highres.hires.tiff

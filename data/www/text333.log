@@ -1,1 +1,1 @@
-{"message":{"event":"imagine.hires.cropping.created","ticketId":"cb230706f6db99c1a8163f00893cc382","uuid":"cb230706f6db99c1a8163f00893cc382","version":"photoartkerstin (109)","extension":"jpg","hash":"98685dcd0aeeecbb44ed95c17c0966d0","errors":[]}}
+{"message":{"event":"thumbnail.finedata.created","ticketId":"79e66fd7afcd7dac8e683f417592d8cd","uuid":"79e66fd7afcd7dac8e683f417592d8cd","version":"imgp1060","extension":"jpg","thumbnailList":["http:\/\/172.17.0.1:8181\/export\/79e66fd7afcd7dac8e683f417592d8cd\/imgp1060.jpg_500x500.png"],"errors":[]}}

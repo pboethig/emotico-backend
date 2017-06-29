@@ -141,7 +141,7 @@ mittax_mediaconverter:
           parameters: []
           nowait: true
           exclusive: false
-      # Chanel to generate lowres videos
+      # Chanel to generate image metadata
         metadata.extract:
           name: e_metadata_extract
           queueName: q_metadata_extract

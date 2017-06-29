@@ -14,10 +14,7 @@ use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Event\Builder\ImagineRuntimeException;
 use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Adapter\IAdapter;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
-use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\ThumbnailTicketExecutorAbstract;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\IThumbnailTicket;
 use Symfony\Component\Process\Process;
@@ -53,15 +50,11 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
             $this->_storeInExportFolder($ticket);
 
-            $this->_storeJPGVersionInTargetStorageFolder($ticket);
-
-            $this->_storeTIFFVersionInTargetStorageFolder($ticket);
+            $this->_storeTIFFVersionInTargetAssetFolder($ticket);
             
-            $this->_storePNGVersionInTargetStorageFolder($ticket);
+            $this->_storeLowresPNGVersionInAssetFolder($ticket);
 
             $this->_dispatchEvent($ticket);
-
-            $this->_cleanUp($ticket);
         }
         catch (\Exception $e)
         {
@@ -82,9 +75,6 @@ class Executor extends ThumbnailTicketExecutorAbstract
     private function _init()
     {
         $this->_imagine = new Imagine();
-
-        //change to root dir to match flysystem root
-        chdir(__DIR__ . '/../../../../../../../..');
     }
 
     /**
@@ -95,7 +85,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
      */
     public function load(StorageItem $storageItem) : bool
     {
-        $stream = fopen('/var/www/storage/'.$storageItem->getPath(), 'r');
+        $stream = fopen(Filesystem::getStoragePath($storageItem), 'r');
 
         $this->_currentImage = $this->_imagine->read($stream);
 
@@ -125,16 +115,14 @@ class Executor extends ThumbnailTicketExecutorAbstract
             return true;
         }
 
-        $targetFolder = Upload::md5($ticket->getStorageItem()->getFilename());
-
-        @mkdir(Config::getExportPath().'/'.$targetFolder);
+        $targetFolder = Filesystem::createStorageFolder($ticket->getStorageItem(),'export');
 
         $targetFileName = $ticket->getStorageItem()->getFilename()
             . '_' . $ticket->getCurrentBox()->getWidth()
             . 'x' . $ticket->getCurrentBox()->getHeight()
             . '.' . $ticket->getCurrentOutputFormat()->getFormat();
 
-        $targetPath = 'storage/export/' . $targetFolder .'/' . $targetFileName;
+        $targetPath = $targetFolder .'/' . $targetFileName;
 
 
         $im = $this->_currentImage->getImagick();
@@ -150,20 +138,26 @@ class Executor extends ThumbnailTicketExecutorAbstract
      * @param IThumbnailTicket $ticket
      * @return bool
      */
-    protected function _storeJPGVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
+    public function convertpsd(IThumbnailTicket $ticket)
     {
-        if($ticket->getStorageItem()->getExtension()=='jpg')
-        {
-            return true;
-        }
+        $targetFolder = Filesystem::createStorageFolder($ticket->getStorageItem(),'export');
 
-        $targetPath = Config::getStoragePath().'/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.jpg';
+        $targetFileName = $ticket->getStorageItem()->getFilename()
+            . '_' . $ticket->getCurrentBox()->getWidth()
+            . 'x' . $ticket->getCurrentBox()->getHeight()
+            . '.' . $ticket->getCurrentOutputFormat()->getFormat();
 
-        $command = 'convert '.Config::getStoragePath().'/'.$ticket->getStorageItem()->getPath() .' '. $targetPath;
+        $targetPath = $targetFolder .'/' . $targetFileName;
 
-        $process = new Process($command);
 
-        $process->run();
+        $im = $this->_currentImage->getImagick();
+
+        //always use layer 0 in hope of transparency channel
+        $im->setIteratorIndex(0);
+        $im->setResolution(90, 90);
+        $im->setImageFormat($ticket->getCurrentOutputFormat()->getFormat());
+        $im->adaptiveResizeImage($ticket->getCurrentBox()->getWidth(), 0);
+        $im->writeImage($targetPath);
 
         return true;
     }
@@ -173,16 +167,20 @@ class Executor extends ThumbnailTicketExecutorAbstract
      * use imagemagic convert to keep original size
      * @return bool
      */
-    protected function _storeTIFFVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
+    protected function _storeTIFFVersionInTargetAssetFolder(IThumbnailTicket $ticket ): bool
     {
-        if($ticket->getStorageItem()->getExtension()=='tiff')
+        $targetFormat = 'tiff';
+
+        if($ticket->getStorageItem()->getExtension() == $targetFormat)
         {
             return true;
         }
 
-        $targetPath = Config::getStoragePath().'/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.tiff';
+        $sourcePath = Filesystem::getStoragePath($this->_ticket->getStorageItem());
 
-        $command = 'convert '.Config::getStoragePath().'/'.$ticket->getStorageItem()->getPath() .' '. $targetPath;
+        $targetPath = Filesystem::getStoragePath($this->_ticket->getStorageItem(), $targetFormat);
+
+        $command = 'convert ' . $sourcePath .' '. $targetPath;
 
         $process = new Process($command);
 
@@ -197,11 +195,13 @@ class Executor extends ThumbnailTicketExecutorAbstract
      *
      * @return bool
      */
-    protected function _storePNGVersionInTargetStorageFolder(IThumbnailTicket $ticket ): bool
+    protected function _storeLowresPNGVersionInAssetFolder(IThumbnailTicket $ticket ): bool
     {
+        $targetFormat='png';
+
         $im = $this->_currentImage->getImagick();
 
-        if($ticket->getStorageItem()->getExtension()=='png')
+        if($ticket->getStorageItem()->getExtension() == $targetFormat)
         {
             $im->clear();
             $im->destroy();
@@ -209,12 +209,12 @@ class Executor extends ThumbnailTicketExecutorAbstract
             return true;
         }
 
-        $targetPath = 'storage/assets/' . Upload::md5($ticket->getStorageItem()->getFilename()) . '/' . $ticket->getStorageItem()->getBasename().'.png';
+        $targetPath = Filesystem::getStoragePath($ticket->getStorageItem(), $targetFormat);
 
         $im->setImageCompression(0);
         $im->setImageCompressionQuality(100);
 
-        $im->setImageFormat('png');
+        $im->setImageFormat($targetFormat);
         $im->writeImage($targetPath);
 
         $im->clear();
@@ -223,12 +223,4 @@ class Executor extends ThumbnailTicketExecutorAbstract
         return true;
     }
 
-    /**
-     * @param IThumbnailTicket $ticket
-     * @return bool
-     */
-    protected function _cleanUp(IThumbnailTicket $ticket ) : bool
-    {
-        return true;
-    }
 }

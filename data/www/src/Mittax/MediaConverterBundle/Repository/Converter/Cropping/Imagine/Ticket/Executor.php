@@ -14,6 +14,7 @@ use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingException;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Service\Converter\Cropping\Scaling;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\Executor\IExecutor;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
@@ -25,16 +26,6 @@ use Symfony\Component\Process\Process;
  */
 class Executor implements IExecutor
 {
-    /**
-     * @var \Imagine\Imagick\Imagine
-     */
-    private $_imagine;
-
-    /**
-     * @var \Imagine\Imagick\Image
-     */
-    private $_currentImage;
-
     /**
      * @var ICroppingTicket
      */
@@ -85,21 +76,17 @@ class Executor implements IExecutor
      */
     protected function cropToAssetFolder(): bool
     {
-        $sourceImage = Config::getStoragePath().'/'.$this->_ticket->getStorageItem()->getPath();
+        $sourceImagePath = Filesystem::getStoragePath($this->_ticket->getStorageItem(),'tiff');
 
-        $targetFolder = Config::getStoragePath() . '/assets/' . $this->_ticket->getJobId();
+        $targetFolder = Filesystem::createStorageFolder($this->_ticket->getStorageItem());
 
-        @mkdir($targetFolder, 0777);
-
-        $fileName = $this->_ticket->getStorageItem()->getBasename().'_'.$this->_ticket->getCroppingData()->getHash().'_crop.tiff';
+        $fileName = Filesystem::getHiresCroppingFilename($this->_ticket->getStorageItem(), $this->_ticket->getCroppingData());
 
         $targetPath = $targetFolder . '/' . $fileName;
 
-        $storagePath = Config::getStoragePath().'/'. $this->_ticket->getStorageItem()->getPath();
+        $scaledCroppingData = Scaling::getHiresCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData(), $sourceImagePath);
 
-        $scaledCroppingData = Scaling::getHiresCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData(), $storagePath);
-
-        $command = 'convert "'. $sourceImage
+        $command = 'convert "'. $sourceImagePath
             . '" -crop '
             . $scaledCroppingData->getWidth()
             . 'x' . $scaledCroppingData->getHeight()

@@ -8,9 +8,11 @@
 
 namespace Mittax\MediaConverterBundle\Service\Storage\Local;
 
+use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Service\Storage\FilesystemAbstract;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Adapter\IAdapter;
 use Mittax\MediaConverterBundle\Service\System\Config;
+use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
 
 class Filesystem extends FilesystemAbstract
 {
@@ -134,12 +136,55 @@ class Filesystem extends FilesystemAbstract
 
     /**
      * @param string $storagePath
-     * @return mixed|string
+     * @return string
      */
-    public static function getUuidFromPath(string $storagePath)
+    public static function getUuidFromPath(string $storagePath) : string
     {
         $parts = explode("/", $storagePath);
 
         return $parts[1];
+    }
+
+    /**
+     * @param StorageItem $storageItem
+     * @param string $extension
+     * @param string $context
+     * @return string
+     */
+    public static function getStoragePath(StorageItem $storageItem, string $extension = '', string $context='assets') : string
+    {
+        if(empty($extension))
+        {
+            $extension = $storageItem->getExtension();
+        }
+
+        return Config::getStoragePath().'/' . $context . '/' . $storageItem->getUuid()."/" . $storageItem->getBasename() .'.' . $extension;
+    }
+
+    /**
+     * @param StorageItem $storageItem
+     * @param string $context
+     * @return string
+     */
+    public static function createStorageFolder(StorageItem $storageItem, string $context='assets') : string
+    {
+        $folder = Config::getStoragePath() . '/' . $context . '/' . $storageItem->getUuid();
+
+        if(!is_dir($folder))
+        {
+            mkdir($folder, 0777);
+        }
+
+        return $folder;
+    }
+
+    /**
+     * @param StorageItem $storageItem
+     * @param CroppingData $croppingData
+     * @return string
+     */
+    public static function getHiresCroppingFilename(StorageItem $storageItem, CroppingData $croppingData)
+    {
+        return $storageItem->getBasename().'_'.$croppingData->getHash().'_crop.tiff';
     }
 }
