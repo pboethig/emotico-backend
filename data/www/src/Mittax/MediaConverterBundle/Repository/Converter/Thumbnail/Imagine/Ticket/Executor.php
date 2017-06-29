@@ -115,21 +115,11 @@ class Executor extends ThumbnailTicketExecutorAbstract
             return true;
         }
 
-        $targetFolder = Filesystem::createStorageFolder($ticket->getStorageItem(),'export');
-
-        $targetFileName = $ticket->getStorageItem()->getFilename()
-            . '_' . $ticket->getCurrentBox()->getWidth()
-            . 'x' . $ticket->getCurrentBox()->getHeight()
-            . '.' . $ticket->getCurrentOutputFormat()->getFormat();
-
-        $targetPath = $targetFolder .'/' . $targetFileName;
-
-
         $im = $this->_currentImage->getImagick();
         $im->setResolution(90, 90);
         $im->setImageFormat($ticket->getCurrentOutputFormat()->getFormat());
         $im->adaptiveResizeImage($ticket->getCurrentBox()->getWidth(), 0);
-        $im->writeImage($targetPath);
+        $im->writeImage($this->_ticket->getCurrentTargetStoragePath());
 
         return true;
     }
@@ -155,6 +145,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
         //always use layer 0 in hope of transparency channel
         $im->setIteratorIndex(0);
         $im->setResolution(90, 90);
+
         $im->setImageFormat($ticket->getCurrentOutputFormat()->getFormat());
         $im->adaptiveResizeImage($ticket->getCurrentBox()->getWidth(), 0);
         $im->writeImage($targetPath);
@@ -180,7 +171,7 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
         $targetPath = Filesystem::getStoragePath($this->_ticket->getStorageItem(), $targetFormat);
 
-        $command = 'convert ' . $sourcePath .' '. $targetPath;
+        $command = 'convert "' . $sourcePath .'" "'. $targetPath.'"';
 
         $process = new Process($command);
 

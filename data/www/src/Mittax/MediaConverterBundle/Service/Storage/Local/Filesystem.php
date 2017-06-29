@@ -80,7 +80,7 @@ class Filesystem extends FilesystemAbstract
          * create final folder under assets
          */
 
-        $fileName = str_replace('.indb.zip','.indb', basename($filePath));
+        $fileName = str_replace('.inddbook','.indb', basename($filePath));
 
         $hash = Upload::md5($fileName);
 
@@ -101,8 +101,6 @@ class Filesystem extends FilesystemAbstract
         $zip->extractTo($targetFolderPath);
         $zip->close();
 
-
-
         /**
          * Return indb file
          */
@@ -112,7 +110,10 @@ class Filesystem extends FilesystemAbstract
 
             if($fileInfo->getExtension()=="indb")
             {
-                return 'assets/' . $targetFolderName . '/' . $fileInfo->getFilename();
+                //rename extracted bookfile to filter filename
+                rename($fileInfo->getRealPath(), $targetFolderPath.'/' . $fileName);
+
+                return 'assets/' . $targetFolderName . '/' . $fileName;
             }
         }
 
@@ -125,11 +126,11 @@ class Filesystem extends FilesystemAbstract
      */
     public static function convertStoragePathToUrl(string $storagePath) : string
     {
-        $storagePath = str_replace("export", Config::getPublicStorageUrl() . '/export', $storagePath);
+        $storagePath = str_replace(Config::getExportPath(), Config::getPublicStorageUrl() . '/export', $storagePath);
 
-        $storagePath = str_replace("assets", Config::getPublicStorageUrl() . '/assets', $storagePath);
+        $storagePath = str_replace(Config::getAssetsPath(), Config::getPublicStorageUrl() . '/assets', $storagePath);
 
-        $storagePath = str_replace("storage","", $storagePath);
+        $storagePath = str_replace(Config::getStoragePath(),"", $storagePath);
 
         return $storagePath;
     }

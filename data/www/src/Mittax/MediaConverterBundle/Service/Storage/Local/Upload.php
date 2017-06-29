@@ -23,7 +23,7 @@ class Upload
      * @var array
      */
     private $extensionToEventMap = [
-      'indb.zip'=>[
+      '.inddbook'=>[
           'eventClass'=>'Mittax\MediaConverterBundle\Event\Upload\BookPackageUploadFinished',
           'eventMethod'=>'onBookPackageUploadFinished'
       ]
@@ -171,7 +171,12 @@ class Upload
         return $assetPaths;
     }
 
-    function readyToRead($file){
+    /**
+     * @param $file
+     * @return bool
+     */
+    function readyToRead($file)
+    {
         return ((time() - filemtime($file)) > 5 ) ? true : false;
     }
 
@@ -200,7 +205,8 @@ class Upload
             '%24',      // $
             '%3f',      // ?
             '%3b',      // ;
-            '%3d'       // =
+            '%3d',       // =
+            ' ',
         );
 
         if ( ! $relative_path)
@@ -210,7 +216,30 @@ class Upload
         }
 
         $str = self::remove_invisible_characters($str, FALSE);
-        return strtolower(stripslashes(str_replace($bad, '', $str)));
+
+        $filePath = strtolower(stripslashes(str_replace($bad, '', $str)));
+
+        $filePath = self::supportReuploads($filePath);
+
+        return $filePath;
+    }
+
+    /**
+     * @param string $filePath
+     * @return mixed|string
+     */
+    public static function supportReuploads(string $filePath)
+    {
+        //remove all dots and extensions in the middle of the filename and read extension
+        $parts = explode(".",$filePath);
+
+        $extension = end($parts);
+
+        $filePath = str_replace(".","",$filePath);
+
+        $filePath = str_replace($extension,"",$filePath).".".$extension;
+
+        return $filePath;
     }
 
     /**

@@ -9,16 +9,12 @@
 namespace Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket;
 
 use Imagine\Image\Point;
-use Imagine\Imagick\Imagine;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingCreated;
 use Mittax\MediaConverterBundle\Event\Converter\Imagine\HiresCroppingException;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
-use Mittax\MediaConverterBundle\Service\Converter\Cropping\Scaling;
-use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
-use Mittax\MediaConverterBundle\Service\System\Config;
+use Mittax\MediaConverterBundle\Service\Converter\Cropping\Crop;
 use Mittax\MediaConverterBundle\Ticket\Executor\IExecutor;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
-use Symfony\Component\Process\Process;
 
 /**
  * Class Executor
@@ -47,7 +43,7 @@ class Executor implements IExecutor
         {
             $this->cropToAssetFolder();
 
-            $this->_dispatchEvent();
+            $this->dispatchEvent();
         }
         catch (\Exception $e)
         {
@@ -66,7 +62,10 @@ class Executor implements IExecutor
         return true;
     }
 
-    private function _dispatchEvent()
+    /**
+     * Dispatches final event
+     */
+    private function dispatchEvent()
     {
         Dispatcher::getInstance()->dispatch(HiresCroppingCreated::NAME, new HiresCroppingCreated($this->_ticket));
     }
@@ -76,28 +75,9 @@ class Executor implements IExecutor
      */
     protected function cropToAssetFolder(): bool
     {
-        $sourceImagePath = Filesystem::getStoragePath($this->_ticket->getStorageItem(),'tiff');
+        $croppingService = new Crop();
 
-        $targetFolder = Filesystem::createStorageFolder($this->_ticket->getStorageItem());
-
-        $fileName = Filesystem::getHiresCroppingFilename($this->_ticket->getStorageItem(), $this->_ticket->getCroppingData());
-
-        $targetPath = $targetFolder . '/' . $fileName;
-
-        $scaledCroppingData = Scaling::getHiresCroppingData($this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData(), $sourceImagePath);
-
-        $command = 'convert "'. $sourceImagePath
-            . '" -crop '
-            . $scaledCroppingData->getWidth()
-            . 'x' . $scaledCroppingData->getHeight()
-            . '+' . $scaledCroppingData->getTop()
-            . '+' . $scaledCroppingData->getLeft()
-            . ' "' . $targetPath . '"';
-
-
-        $process = new Process($command);
-
-        $process->run();
+        $command = $croppingService->crop($this->_ticket->getSourceImagePath(), $this->_ticket->getTargetPath(), $this->_ticket->getCroppingData(), $this->_ticket->getBrowserImageData());
 
         return true;
     }

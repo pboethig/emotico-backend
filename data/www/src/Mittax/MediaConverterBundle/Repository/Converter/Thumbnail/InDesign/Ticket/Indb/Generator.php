@@ -8,7 +8,6 @@
 
 namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\InDesign\Ticket\Indb;
 
-use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Service\System\Config;
 use Mittax\MediaConverterBundle\Ticket\InDesignServer\Commands\DocumentExportJPG;
 use Mittax\MediaConverterBundle\Ticket\InDesignServer\Types\AdditionalData;
@@ -34,9 +33,7 @@ class Generator extends ThumbnailTicketAbstract
 
         $baseName = $this->storageItem->getBasename();
 
-        $fileName = $this->storageItem->getFilename();
-
-        $uuid = Upload::md5($fileName);
+        $uuid = $this->storageItem->getUuid();
 
         $dirname = $this->storageItem->getDirname();
 

@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  * Class AssetControllerTest
  * @package Mittax\MediaConverterBundle\Tests\Controller
  */
-class AssetControllerTest extends WebTestCase
+class ConfigControllerTest extends WebTestCase
 {
     public function testUpload()
     {

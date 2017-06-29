@@ -3,6 +3,7 @@
 namespace Mittax\MediaConverterBundle\Repository\Converter\Cropping\Imagine\Ticket;
 
 use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Ticket\Cropping\ICroppingTicket;
 use Mittax\MediaConverterBundle\ValueObjects\BrowserImageData;
 use Mittax\MediaConverterBundle\ValueObjects\CroppingData;
@@ -29,6 +30,15 @@ class Ticket implements ICroppingTicket
     private $browserImageData;
 
     /**
+     * @var string
+     */
+    private $sourceImagePath='';
+
+    /**
+     * @var string
+     */
+    private $targetPath='';
+    /**
      * Ticket constructor.
      * @param StorageItem $storageItem
      * @param CroppingData $croppingData
@@ -41,6 +51,14 @@ class Ticket implements ICroppingTicket
         $this->croppingData = $croppingData;
 
         $this->browserImageData = $browserImageData;
+
+        $this->sourceImagePath = Filesystem::getStoragePath($this->storageItem,'tiff');
+
+        $targetFolder = Filesystem::createStorageFolder($this->storageItem);
+
+        $fileName = Filesystem::getHiresCroppingFilename($this->storageItem, $this->croppingData);
+
+        $this->targetPath = $targetFolder . '/' . $fileName;
     }
 
     /**
@@ -81,5 +99,21 @@ class Ticket implements ICroppingTicket
     public function getBrowserImageData() : BrowserImageData
     {
         return $this->browserImageData;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSourceImagePath() : string
+    {
+        return $this->sourceImagePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTargetPath() : string
+    {
+        return $this->targetPath;
     }
 }

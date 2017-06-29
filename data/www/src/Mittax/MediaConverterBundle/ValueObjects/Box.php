@@ -54,4 +54,22 @@ class Box
     {
         $this->_uuid = $uuid;
     }
+
+    /**
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    
 }

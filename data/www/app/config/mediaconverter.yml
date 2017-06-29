@@ -47,7 +47,7 @@ mittax_mediaconverter:
           - { 'format': 'jpg', 'filter': '', 'quality': ['jpeg_quality', 80], sizes: [{'width': 500, 'height': 500}], 'mode': 'inset', 'additionalFilter': ''}
             # - { 'format': 'png', 'filter': '', 'quality': ['png_compression_level', 10], sizes: [{'width': 500, 'height': 500}, {'width': 600, 'height': 600}], 'mode': 'inset', 'additionalFilter': ''}
       executable: { phpextension: [imagick, gd]}
-      formats: indd,indb,indb.zip
+      formats: indd,indb,inddbook
 
   ##################################################
   # Registered systempaths
@@ -62,6 +62,7 @@ mittax_mediaconverter:
       public_url: http://172.17.0.1:8181
       upload: /var/www/storage/upload
       export: /var/www/storage/export
+      assets: /var/www/storage/assets
   ##################################################
   # InDesignServer Share configuration
   #####################################################

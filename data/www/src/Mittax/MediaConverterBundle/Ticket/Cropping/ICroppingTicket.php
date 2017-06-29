@@ -34,4 +34,13 @@ interface ICroppingTicket extends ITicket
      */
     public function getBrowserImageData() : BrowserImageData;
 
+    /**
+     * @return string
+     */
+    public function getSourceImagePath() : string;
+
+    /**
+     * @return string
+     */
+    public function getTargetPath() : string;
 }

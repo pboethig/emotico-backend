@@ -2,6 +2,7 @@
 
 namespace Mittax\MediaConverterBundle\Service\Storage\Local\Adapter\Flysystem;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Adapter\IAdapter;
+use Symfony\Component\Finder\SplFileInfo;
 
 /**
  * Class Local
@@ -60,7 +61,7 @@ class Local extends \League\Flysystem\Adapter\Local implements IAdapter
             'type' => $file->getType(),
             'path' => $this->getFilePath($file),
             'extension' => $file->getExtension(),
-            'basename'=> rtrim(str_replace($file->getExtension(),'',$file->getBasename()),'.'),
+            'basename'=> self::getCustomBasename($file),
             'filename'=>$file->getFilename(),
             'dirname'=>rtrim(str_replace($file->getBasename(),"", $this->getFilePath($file)),"/")
         ];
@@ -72,6 +73,28 @@ class Local extends \League\Flysystem\Adapter\Local implements IAdapter
         }
 
         return $normalized;
+    }
+
+    /**
+     * Support extension in the middle of the filename filename
+     * @param SplFileInfo $file
+     * @return string
+     */
+    public static function getCustomBasename(\SplFileInfo $file)
+    {
+        $parts = explode(".", $file->getBasename());
+
+        $baseName='';
+
+        for($i=0;$i < count($parts);$i++)
+        {
+            $baseName.='.'.$parts[$i];
+        }
+
+        $baseName= rtrim(rtrim(ltrim($baseName,'.'),$file->getExtension()),'.');
+
+
+        return $baseName;
     }
 
 

@@ -10,7 +10,6 @@ namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Ffmpeg\Thum
 
 use FFMpeg\FFMpeg;
 use FFMpeg\Media\Video;
-use Mittax\MediaConverterBundle\Entity\Storage\StorageItem;
 use Mittax\MediaConverterBundle\Event\Builder\FfmpegRuntimeException;
 use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Thumbnail\FineDataCreated;
@@ -31,21 +30,6 @@ class Executor extends ThumbnailTicketExecutorAbstract
     private $_ffmpeg;
 
     /**
-     * @var string
-     */
-    private $_currentVideoContent;
-
-    /**
-     * @var string
-     */
-    private $_tempFolderVideoPath;
-
-    /**
-     * @var string
-     */
-    private $_tempThumbnailPath;
-
-    /**
      * @var Video
      */
     private $_video;
@@ -59,19 +43,13 @@ class Executor extends ThumbnailTicketExecutorAbstract
 
         try
         {
-            $this->_init($ticket);
+            $this->_init();
 
-            $this->load($ticket->getStorageItem());
+            $this->load();
 
-            $this->_storeOriginalVideoInTempFolder($ticket);
+            $this->_createThumbnail();
 
-            $this->_createThumbnailInTempFolder($ticket);
-
-            $this->_storeThumbnailInTargetFolder($ticket);
-
-            $this->_createLowresTicket($ticket);
-
-            $this->_cleanUp($ticket);
+            $this->_createLowresTicket();
 
             $this->_dispatchEvent($ticket);
 
@@ -93,75 +71,43 @@ class Executor extends ThumbnailTicketExecutorAbstract
         return true;
     }
 
-    /**
-     * @param IThumbnailTicket $ticket
-     * @return bool
-     */
-    protected function _storeThumbnailInTargetFolder(IThumbnailTicket $ticket ): bool
-    {
-        @unlink($ticket->getCurrentTargetStoragePath());
-
-        $content = file_get_contents('storage/' . $this->_tempThumbnailPath);
-
-        Filesystem::getCachedAdapter('storage')->write($ticket->getCurrentTargetStoragePath(), $content, new \League\Flysystem\Config());
-
-        return true;
-    }
-
-    private function _init(IThumbnailTicket $ticket)
+    private function _init()
     {
         $this->_ffmpeg = \FFMpeg\FFMpeg::create([
             'ffmpeg.binaries' => exec('which ffmpeg'),
             'ffprobe.binaries' => exec('which ffprobe'),
         ]);
-    
-        //change to root dir to match flysystem root
-        chdir(__DIR__ . '/../../../../../../../..');
-
-        $this->_tempFolderVideoPath = $ticket->getCurrentTempFilePath() . '.' . $ticket->getStorageItem()->getExtension();
-
-        $this->_tempThumbnailPath = $this->_tempFolderVideoPath .'.' . $ticket->getCurrentOutputFormat()->getFormat();
     }
+
     /**
      * Loads image as stream from flysystem and creates an Imagine Data object
      *
-     * @param StorageItem $storageItem
      * @return bool
      */
-    public function load(StorageItem $storageItem) : bool
+    public function load() : bool
     {
-        $this->_currentVideoContent = Filesystem::getCachedAdapter('storage')->read($storageItem->getPath());
+        $this->_video = $this->_ffmpeg->open(Filesystem::getStoragePath($this->_ticket->getStorageItem()));
 
         return true;
     }
 
     /**
-     * Stores thumbnail in local OS tempfolder
-     *
-     * @return bool
+     * Create thumbnail
      */
-    private function _storeOriginalVideoInTempFolder(IThumbnailTicket $ticket ) : bool
+    private function _createThumbnail()
     {
-        Filesystem::getCachedAdapter('storage')->copy($ticket->getStorageItem()->getPath(), $this->_tempFolderVideoPath);
+        $filePath = $this->_ticket->getCurrentTargetStoragePath();
 
-        return true;
-    }
-
-    private function _createThumbnailInTempFolder(IThumbnailTicket $ticket)
-    {
-        $this->_video = $this->_ffmpeg->open('storage/' . $this->_tempFolderVideoPath);
-
-        $this->_video
-            ->frame(\FFMpeg\Coordinate\TimeCode::fromSeconds(1))
-            ->save('storage/' . $this->_tempThumbnailPath);
+            $this->_video->frame(\FFMpeg\Coordinate\TimeCode::fromSeconds(1))
+            ->save($filePath);
     }
 
     /**
-     * @param IThumbnailTicket $ticket
+     * create lowresticket
      */
-    private function _createLowresTicket(IThumbnailTicket $ticket)
+    private function _createLowresTicket()
     {
-        $producer = new Producer([$ticket]);
+        $producer = new Producer([$this->_ticket]);
 
         $producer->execute();
     }
@@ -172,18 +118,5 @@ class Executor extends ThumbnailTicketExecutorAbstract
     private function _dispatchEvent(IThumbnailTicket $jobTicket)
     {
         Dispatcher::getInstance()->dispatch(FineDataCreated::NAME, new FineDataCreated($jobTicket));
-    }
-
-    /**
-     * @param IThumbnailTicket $ticket
-     * @return bool
-     */
-    protected function _cleanUp(IThumbnailTicket $ticket ) : bool
-    {
-        Filesystem::getCachedAdapter('storage')->delete($this->_tempThumbnailPath);
-
-        Filesystem::getCachedAdapter('storage')->delete($this->_tempFolderVideoPath);
-
-        return true;
     }
 }

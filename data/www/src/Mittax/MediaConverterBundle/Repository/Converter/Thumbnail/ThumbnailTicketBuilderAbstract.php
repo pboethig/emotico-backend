@@ -15,6 +15,7 @@ use Mittax\MediaConverterBundle\Event\Dispatcher;
 use Mittax\MediaConverterBundle\Event\Thumbnail\JobTicketFineDataCreated;
 use Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\OutputFormat\IOutputFormat;
 use Mittax\MediaConverterBundle\Service\Format\SupportedFormatsBuilder;
+use Mittax\MediaConverterBundle\Service\Storage\Local\Filesystem;
 use Mittax\MediaConverterBundle\Service\Storage\Local\Upload;
 use Mittax\MediaConverterBundle\Ticket\ITicket;
 use Mittax\MediaConverterBundle\Ticket\ITicketBuilder;
@@ -102,7 +103,9 @@ abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements 
      */
     public function __construct(StorageItem $storageItem)
     {
-        $this->init($storageItem);
+        $this->_storageItem = $storageItem;
+
+        $this->init($this->_storageItem);
 
         $this->build();
     }
@@ -172,9 +175,9 @@ abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements 
     {
         foreach ($sizes as $this->_currentSize)
         {
-            $this->_buildTargetPaths();
-
             $this->_currentBox = new $this->_boxClassName($this->_currentSize->getWidth(), $this->_currentSize->getHeight());
+
+            $this->_buildTargetPaths();
 
             $this->_buildJobTicket();
 
@@ -241,28 +244,14 @@ abstract class ThumbnailTicketBuilderAbstract extends TicketAbstract implements 
      */
     protected function _buildTargetStoragePath() : string
     {
-        $targetFolder = Upload::md5($this->_storageItem->getFilename());
+        $targetFolder = Filesystem::createStorageFolder($this->_storageItem,'export');
 
-        if(!is_dir($targetFolder))
-        {
-            $exportFolder = \Mittax\MediaConverterBundle\Service\System\Config::getExportPath(). '/' . $targetFolder ;
+        $targetFileName = $this->_storageItem->getFilename()
+            . '_' . $this->_currentBox->getWidth()
+            . 'x' . $this->_currentBox->getHeight()
+            . '.' . $this->_currentOutputFormat->getFormat();
 
-            if(!is_dir($exportFolder))
-            {
-                mkdir($exportFolder);
-                chmod($exportFolder, 0777);
-            }
-            else
-            {
-                chmod($exportFolder, 0777);
-            }
-        }
-
-        $path = str_replace('temp/','export/' . $this->_storageItem->getUuid() . '/', $this->_currentTempFilePath);
-
-        $path = str_replace('storage/','', $path);
-
-        return $path .'.'. $this->getCurrentOutputFormat()->getFormat();
+        return $targetFolder .'/' . $targetFileName;
     }
 
     /**

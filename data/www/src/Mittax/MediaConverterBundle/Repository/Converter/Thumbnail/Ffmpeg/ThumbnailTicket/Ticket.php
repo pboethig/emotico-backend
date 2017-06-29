@@ -8,6 +8,7 @@
 
 namespace Mittax\MediaConverterBundle\Repository\Converter\Thumbnail\Ffmpeg\ThumbnailTicket;
 
+use Mittax\MediaConverterBundle\Ticket\ITicketBuilder;
 use Mittax\MediaConverterBundle\Ticket\Thumbnail\ThumbnailTicketAbstract;
 
 /**
@@ -16,5 +17,12 @@ use Mittax\MediaConverterBundle\Ticket\Thumbnail\ThumbnailTicketAbstract;
  */
 class Ticket extends ThumbnailTicketAbstract
 {
+
+    public function __construct(ITicketBuilder $builder)
+    {
+        parent::__construct($builder);
+    }
+
+
 
 }

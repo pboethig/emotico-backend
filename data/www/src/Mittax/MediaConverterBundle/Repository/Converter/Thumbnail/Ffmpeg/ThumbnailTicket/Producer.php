@@ -20,16 +20,4 @@ class Producer extends ProducerAbstract
      * @var string
      */
     protected $_exchangeConfigurationTag = 'ffmpeg';
-
-    /**
-     * Override this method to imlement a custom command
-     *
-     * @return Process
-     */
-    public function buildProcess() : Process
-    {
-        $process = new Process('php /var/www/app/console mittax:mediaconverter:thumbnail:ffmpeg:startconsumer');
-
-        return $process;
-    }
 }

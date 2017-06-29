@@ -136,6 +136,14 @@ class Config
     /**
      * @return string
      */
+    public static function getAssetsPath()
+    {
+        return str_replace("\${root}", self::getRootDir(),self::getMediaConverterConfig()['paths']['storage']['assets']);
+    }
+
+    /**
+     * @return string
+     */
     public static function getPublicWebUrl()
     {
         return self::getMediaConverterConfig()['paths']['public_web_url'];

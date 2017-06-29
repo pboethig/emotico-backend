@@ -60,7 +60,7 @@ class AssetController extends AbstractController
 
         }catch (\Exception $ex)
         {
-            $response->setContent('{"error":"'.$ex->getMessage().'"}');
+            $response->setContent('{"error":"'.$ex->getMessage().$ex->getTraceAsString().'"}');
 
             $response->setStatusCode(500);
 

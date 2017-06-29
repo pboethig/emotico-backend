@@ -42,6 +42,7 @@ class BookPackageUploadFinished
 
         $bookPath = $fileSystemService->importBookPackagePathFromUploadFolder($event->getFilePath());
 
+
         /**
          * Generate thumbnails
          */
